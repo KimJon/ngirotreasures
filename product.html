@@ -1,0 +1,257 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Now | Ngiro Treasures</title>
+    <meta name="description" content="Order pure raw wild honey and organic wellness products directly from Ngiro Treasures. Sustainable, healthy, and natural.">
+    <meta name="keywords" content="Order Raw Honey, Buy Wild Honey, Ngiro Treasures Shop, Wellness Products, Samburu">
+    <meta property="og:title" content="Order Now | Ngiro Treasures">
+    <meta property="og:description" content="Order pure raw wild honey and organic wellness products directly from Ngiro Treasures.">
+    <meta property="og:image" content="https://ngirotreasures.com/logo.jpg">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="./logo.jpg" type="image/jpeg">
+    <link rel="apple-touch-icon" href="./logo.jpg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-gold': '#D4AF37',
+                        'brand-green': '#2D5A27',
+                        'brand-dark': '#1A1A1A',
+                        'brand-light': '#F9F6F0'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap');
+    </style>
+    <script src="products.js?v=2"></script>
+</head>
+<body class="bg-brand-light font-sans text-brand-dark antialiased min-h-screen flex flex-col">
+
+    <!-- Navigation -->
+    <nav class="w-full bg-white border-b border-gray-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <a href="index.html" class="flex-shrink-0 flex items-center space-x-3">
+                    <img src="./logo.jpg" alt="Ngiro Treasures Logo" class="h-12 w-12 rounded-full object-cover shadow-sm">
+                    <span class="text-2xl font-serif font-bold text-brand-green hidden sm:inline-block">Ngiro Treasures</span>
+                </a>
+                
+                <!-- Hamburger Button (Mobile) -->
+                <div class="md:hidden flex items-center space-x-4">
+                    <a href="order.html" class="relative text-gray-700 hover:text-brand-green transition-colors flex items-center" aria-label="Cart">
+                        <i class="fa-solid fa-cart-shopping text-xl"></i>
+                        <span id="mobile-cart-badge" class="hidden absolute -top-2 -right-2 bg-brand-gold text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">0</span>
+                    </a>
+                    <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="text-gray-700 hover:text-brand-green focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+
+                <div class="hidden md:flex space-x-6 items-center">
+                    <a href="index.html" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Home</a>
+                    <a href="about.html" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Our Story</a>
+                    <a href="index.html#products" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Products</a>
+                    <a href="blog.html" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Journal</a>
+                    <a href="impact.html" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Impact</a>
+                    
+                    <select id="currencySelector" onchange="changeCurrency(this.value)" class="bg-white border border-gray-300 text-gray-700 text-sm rounded-md focus:ring-brand-green focus:border-brand-green block p-2 outline-none cursor-pointer shadow-sm">
+                        <option value="KES" selected>KES (Ksh)</option>
+                        <option value="USD">USD ($)</option>
+                        <option value="EUR">EUR (â‚¬)</option>
+                    </select>
+
+                    <a href="order.html" class="relative text-gray-700 hover:text-brand-green transition-colors flex items-center" aria-label="Cart">
+                        <i class="fa-solid fa-cart-shopping text-xl"></i>
+                        <span id="cart-badge" class="hidden absolute -top-2 -right-2 bg-brand-gold text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">0</span>
+                    </a>
+
+                    <a href="order.html" class="bg-brand-green text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-green-800 transition-colors">Checkout</a>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4 space-y-2 border-t border-gray-100 pt-4">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-green hover:bg-gray-50 transition-colors">Home</a>
+                <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-green hover:bg-gray-50 transition-colors">Our Story</a>
+                <a href="index.html#products" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-green hover:bg-gray-50 transition-colors">Products</a>
+                <a href="blog.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-green hover:bg-gray-50 transition-colors">Journal</a>
+                <a href="impact.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-green hover:bg-gray-50 transition-colors">Impact</a>
+                <div class="px-3 py-2">
+                    <select id="mobileCurrencySelector" onchange="changeCurrency(this.value)" class="bg-white border border-gray-300 text-gray-700 text-sm rounded-md focus:ring-brand-green focus:border-brand-green block p-2 outline-none w-full shadow-sm">
+                        <option value="KES" selected>KES (Ksh)</option>
+                        <option value="USD">USD ($)</option>
+                        <option value="EUR">EUR (â‚¬)</option>
+                    </select>
+                </div>
+                <div class="px-3 py-2">
+                    <a href="order.html" class="block w-full text-center bg-brand-green text-white px-6 py-3 rounded-full text-base font-medium hover:bg-green-800 transition-colors">Checkout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Order Form Section -->
+    <main class="flex-grow py-12 px-4 sm:px-6 lg:px-8 bg-brand-light">
+    <div class="max-w-6xl mx-auto">
+        <div class="bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col md:flex-row" id="product-detail-container">
+            <!-- Injected via JS -->
+            <div class="p-12 text-center w-full">Loading product...</div>
+        </div>
+        
+        <div class="mt-16 text-center">
+            <a href="index.html#products" class="text-brand-green font-semibold hover:underline">&larr; Back to all products</a>
+        </div>
+    </div>
+</main>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark text-white py-8 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-gray-400 text-sm">&copy; 2026 Ngiro Treasures. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+    let currentProduct = null;
+    
+    function renderProduct() {
+        const params = new URLSearchParams(window.location.search);
+        const productId = params.get('id');
+        const allProducts = JSON.parse(localStorage.getItem('ngiro_custom_products') || 'null') || ngiroProducts;
+        
+        currentProduct = allProducts.find(p => p.id === productId);
+        if (!currentProduct) {
+            document.getElementById('product-detail-container').innerHTML = '<div class="p-12 text-center text-red-500 w-full">Product not found.</div>';
+            return;
+        }
+        
+        document.title = currentProduct.name + " - Ngiro Treasures";
+        
+        const currency = localStorage.getItem('ngiro_currency') || 'KES';
+        const symbol = getCurrencySymbol(currency);
+        
+        const price = (currentProduct.prices[currency] || currentProduct.prices['KES'] || 0).toFixed(2);
+        
+        document.getElementById('product-detail-container').innerHTML = 
+            <div class="md:w-1/2 bg-gray-100 relative min-h-[400px]">
+                <img src="" alt="" class="w-full h-full object-cover object-center absolute inset-0">
+            </div>
+            <div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center bg-white z-10">
+                <span class="text-brand-gold font-bold uppercase tracking-wider text-sm mb-3 block">Ngiro Treasures</span>
+                <h1 class="text-3xl md:text-5xl font-serif font-bold text-brand-dark mb-4 leading-tight"></h1>
+                <div class="text-3xl font-bold text-brand-green mb-6"></div>
+                
+                <p class="text-gray-600 text-lg mb-8 leading-relaxed"></p>
+                
+                <div class="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4 mb-8">
+                    <button onclick="addToCartAndCheckout('')" class="flex-1 bg-brand-green text-white px-8 py-4 rounded-full font-bold hover:bg-green-800 transition-colors shadow-lg flex justify-center items-center">
+                        Buy Now
+                    </button>
+                    <button onclick="addToCart('')" class="flex-1 bg-brand-dark text-white px-8 py-4 rounded-full font-bold hover:bg-gray-800 transition-colors shadow-lg flex justify-center items-center">
+                        <i class="fa-solid fa-cart-plus mr-2"></i> Add to Cart
+                    </button>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-4 pt-8 border-t border-gray-100">
+                    <div class="flex items-center text-gray-500 text-sm"><i class="fa-solid fa-leaf text-brand-gold mr-2 text-lg"></i> 100% Natural</div>
+                    <div class="flex items-center text-gray-500 text-sm"><i class="fa-solid fa-truck text-brand-gold mr-2 text-lg"></i> Countrywide Delivery</div>
+                    <div class="flex items-center text-gray-500 text-sm"><i class="fa-solid fa-seedling text-brand-gold mr-2 text-lg"></i> Sustainably Sourced</div>
+                    <div class="flex items-center text-gray-500 text-sm"><i class="fa-solid fa-heart text-brand-gold mr-2 text-lg"></i> Made with Care</div>
+                </div>
+            </div>
+        ;
+    }
+    
+    function addToCart(productId) {
+        let cart = JSON.parse(localStorage.getItem('ngiro_cart') || '[]');
+        let cartQty = JSON.parse(localStorage.getItem('ngiro_cart_qty') || '{}');
+        
+        if (!cart.includes(productId)) {
+            cart.push(productId);
+        }
+        cartQty[productId] = (cartQty[productId] || 0) + 1;
+        
+        localStorage.setItem('ngiro_cart', JSON.stringify(cart));
+        localStorage.setItem('ngiro_cart_qty', JSON.stringify(cartQty));
+        
+        updateCartBadge();
+        
+        const toast = document.createElement('div');
+        toast.className = 'fixed top-24 right-4 bg-brand-green text-white px-6 py-3 rounded-lg shadow-xl z-50 flex items-center transform transition-all duration-300';
+        toast.innerHTML = '<i class="fa-solid fa-check-circle mr-2"></i> Added to Cart!';
+        document.body.appendChild(toast);
+        setTimeout(() => {
+            toast.style.opacity = '0';
+            setTimeout(() => toast.remove(), 300);
+        }, 3000);
+    }
+    
+    function addToCartAndCheckout(productId) {
+        addToCart(productId);
+        window.location.href = 'order.html';
+    }
+    
+    function updateCartBadge() {
+        let cart = JSON.parse(localStorage.getItem('ngiro_cart') || '[]');
+        const badges = [document.getElementById('cart-badge'), document.getElementById('mobile-cart-badge')];
+        let cartQty = JSON.parse(localStorage.getItem('ngiro_cart_qty') || '{}');
+        
+        let totalItems = 0;
+        cart.forEach(id => {
+            totalItems += (cartQty[id] || 1);
+        });
+
+        badges.forEach(badge => {
+            if (badge) {
+                badge.textContent = totalItems;
+                if (totalItems > 0) {
+                    badge.classList.remove('hidden');
+                } else {
+                    badge.classList.add('hidden');
+                }
+            }
+        });
+    }
+    
+    function changeCurrency(currency) {
+        localStorage.setItem('ngiro_currency', currency);
+        const sel = document.getElementById('currencySelector');
+        if (sel) sel.value = currency;
+        const mobileSel = document.getElementById('mobileCurrencySelector');
+        if (mobileSel) mobileSel.value = currency;
+        renderProduct();
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        const currency = localStorage.getItem('ngiro_currency') || 'KES';
+        const sel = document.getElementById('currencySelector');
+        if (sel) sel.value = currency;
+        const mobileSel = document.getElementById('mobileCurrencySelector');
+        if (mobileSel) mobileSel.value = currency;
+        
+        renderProduct();
+        updateCartBadge();
+    });
+</script>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/254792465156" target="_blank" onclick="incrementStat('ngiro_whatsapp_clicks')" class="fixed bottom-6 right-6 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:bg-green-600 transition-transform hover:scale-110 z-50">
+        <span class="sr-only">Chat with us on WhatsApp</span>
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    </a>
+</body>
+</html>
+

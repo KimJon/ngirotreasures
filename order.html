@@ -311,11 +311,18 @@
 
         function updateCartBadge() {
             let cart = JSON.parse(localStorage.getItem('ngiro_cart') || '[]');
+            let cartQty = JSON.parse(localStorage.getItem('ngiro_cart_qty') || '{}');
             const badges = [document.getElementById('cart-badge'), document.getElementById('mobile-cart-badge')];
+            
+            let totalItems = 0;
+            cart.forEach(id => {
+                totalItems += (cartQty[id] || 1);
+            });
+
             badges.forEach(badge => {
                 if (badge) {
-                    badge.textContent = cart.length;
-                    if (cart.length > 0) {
+                    badge.textContent = totalItems;
+                    if (totalItems > 0) {
                         badge.classList.remove('hidden');
                     } else {
                         badge.classList.add('hidden');
