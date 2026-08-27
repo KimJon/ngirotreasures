@@ -1,36 +1,58 @@
 
 const ngiroProducts = [
     {
-        id: 'honey',
-        name: 'Raw Wild Honey',
-        description: 'Harvested from traditional hives. Pure, raw, and unprocessed. Natural immune support and rich in antioxidants.',
+        id: 'honey_1kg',
+        name: '1KG Raw Wild Honey',
+        description: 'Pure, raw honey harvested from the rich flora of Mt. Ngiro. Naturally sweet, unprocessed and packed with nutrients, enzymes and antioxidants.',
+        image: './ngiro honey 1kg.jpeg',
+        prices: {
+            USD: 7.50,
+            EUR: 7.00,
+            KES: 1000
+        }
+    },
+    {
+        id: 'honey_half_kg',
+        name: '1/2KG Raw Wild Honey',
+        description: 'Pure, raw honey harvested from the rich flora of Mt. Ngiro. Naturally sweet, unprocessed and packed with nutrients, enzymes and antioxidants.',
         image: './Honey.jpg',
         prices: {
-            USD: 24.00,
-            EUR: 22.00,
-            KES: 3000
+            USD: 4.00,
+            EUR: 3.50,
+            KES: 500
+        }
+    },
+    {
+        id: 'soursop_tea',
+        name: 'Soursop Restore Tea (100g)',
+        description: 'A natural herbal blend made from soursop leaves. Traditionally used to support immune health, hormonal balance and overall wellness.',
+        image: './soursoup front.jpeg',
+        prices: {
+            USD: 4.00,
+            EUR: 3.50,
+            KES: 500
+        }
+    },
+    {
+        id: 'guava_tea',
+        name: 'Guava Digest Tea (100g)',
+        description: 'A soothing herbal tea made from guava leaves. Supports healthy digestion, reduces bloating and promotes a healthy gut.',
+        image: './guava digest front.jpeg',
+        prices: {
+            USD: 3.00,
+            EUR: 2.80,
+            KES: 400
         }
     },
     {
         id: 'seketet',
-        name: 'Seketet Herbal Leaves',
-        description: 'Traditional medicinal herb used by Samburu communities. Supports digestion and helps relieve stomach discomfort.',
+        name: 'Seketet Le Ngiro (100g)',
+        description: 'A traditional African herb known for its cleansing and detoxifying properties. It supports overall wellness and vitality.',
         image: './Seketet Leaves.jpg',
         prices: {
-            USD: 18.00,
-            EUR: 16.00,
-            KES: 2200
-        }
-    },
-    {
-        id: 'soursop',
-        name: 'Soursop Leaves',
-        description: 'Widely known for powerful antioxidant properties. Supports immune health and promotes relaxation.',
-        image: './ngiromountain.jpg',
-        prices: {
-            USD: 22.00,
-            EUR: 20.00,
-            KES: 2800
+            USD: 2.50,
+            EUR: 2.20,
+            KES: 300
         }
     }
 ];
