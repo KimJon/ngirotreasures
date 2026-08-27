@@ -1,10 +1,10 @@
-
+﻿
 const ngiroProducts = [
     {
         id: 'honey_1kg',
         name: '1KG Raw Wild Honey',
         description: 'Pure, raw honey harvested from the rich flora of Mt. Ngiro. Naturally sweet, unprocessed and packed with nutrients, enzymes and antioxidants.',
-        image: './ngiro honey 1kg.jpeg?v=3',
+        image: './Honey.jpg?v=4',
         prices: {
             USD: 7.50,
             EUR: 7.00,
@@ -15,7 +15,7 @@ const ngiroProducts = [
         id: 'honey_half_kg',
         name: '1/2KG Raw Wild Honey',
         description: 'Pure, raw honey harvested from the rich flora of Mt. Ngiro. Naturally sweet, unprocessed and packed with nutrients, enzymes and antioxidants.',
-        image: './Honey.jpg?v=3',
+        image: './ngiro honey 1kg.jpeg?v=4',
         prices: {
             USD: 4.00,
             EUR: 3.50,
@@ -60,7 +60,7 @@ const ngiroProducts = [
 // Helper to get currency symbol
 function getCurrencySymbol(currency) {
     if (currency === 'USD') return '$';
-    if (currency === 'EUR') return '€';
+    if (currency === 'EUR') return 'â‚¬';
     if (currency === 'KES') return 'Ksh ';
     return 'Ksh ';
 }
@@ -69,4 +69,5 @@ function getCurrencySymbol(currency) {
 try {
     localStorage.removeItem('ngiro_custom_products');
 } catch (e) {}
+
 
