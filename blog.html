@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story & Journal | Ngiro Treasures</title>
+    <meta name="description" content="Discover the rich heritage of Mount Ngiro, Samburu herbal traditions, and the powerful benefits of raw wild honey and natural herbs.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-gold': '#D4AF37',
+                        'brand-green': '#2D5A27',
+                        'brand-dark': '#1A1A1A',
+                        'brand-light': '#F9F6F0'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap');
+    </style>
+    
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'YOUR_PIXEL_ID');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+</head>
+<body class="bg-brand-light font-sans text-brand-dark antialiased min-h-screen flex flex-col">
+
+    <!-- Navigation -->
+    <nav class="w-full bg-white border-b border-gray-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <a href="index.html" class="flex-shrink-0 flex items-center">
+                    <img src="./logo.jpg" alt="Ngiro Treasures Logo" class="h-14 w-auto rounded-md shadow-sm">
+                </a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Home</a>
+                    <a href="index.html#products" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Products</a>
+                    <a href="blog.html" class="text-brand-green border-b-2 border-brand-green px-3 py-2 text-sm font-medium transition-colors">Journal</a>
+                    <a href="order.html" class="bg-brand-green text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-green-800 transition-colors">Order Now</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Header -->
+    <div class="bg-brand-green text-white py-16">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-serif font-bold mb-4">Our Story & Journal</h1>
+            <p class="text-xl font-light text-brand-light">Exploring the medicinal secrets, heritage, and pure natural wonders of Mount Ngiro.</p>
+        </div>
+    </div>
+
+    <!-- Blog Posts Grid -->
+    <main class="flex-grow py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            
+            <!-- Article 1 -->
+            <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow group flex flex-col">
+                <div class="h-64 bg-gray-200 relative overflow-hidden">
+                    <img src="./Honey.jpg" alt="Health Benefits of Raw Wild Honey" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-8 flex flex-col flex-grow">
+                    <div class="text-xs font-bold text-brand-gold uppercase tracking-wider mb-2">Wellness</div>
+                    <h3 class="text-2xl font-serif font-bold mb-3 line-clamp-2"><a href="blog-template.html" class="hover:text-brand-green">The Miraculous Health Benefits of Raw Wild Honey</a></h3>
+                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">Discover why raw, unprocessed honey harvested from indigenous forest plants is a powerful superfood for immunity and energy.</p>
+                    <div class="mt-auto pt-4">
+                        <a href="blog-template.html" class="text-brand-green font-medium hover:text-brand-gold transition-colors">Read Article &rarr;</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 2 -->
+            <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow group flex flex-col">
+                <div class="h-64 bg-gray-200 relative overflow-hidden">
+                    <img src="./Seketet Leaves.jpg" alt="Samburu Herbal Medicine" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-8 flex flex-col flex-grow">
+                    <div class="text-xs font-bold text-brand-gold uppercase tracking-wider mb-2">Heritage</div>
+                    <h3 class="text-2xl font-serif font-bold mb-3 line-clamp-2"><a href="blog-template.html" class="hover:text-brand-green">Traditional Samburu Herbal Medicine: A Legacy of Healing</a></h3>
+                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">For generations, Samburu elders have relied on the mountain's herbs. Explore the deep cultural roots of this indigenous knowledge.</p>
+                    <div class="mt-auto pt-4">
+                        <a href="blog-template.html" class="text-brand-green font-medium hover:text-brand-gold transition-colors">Read Article &rarr;</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 3 -->
+            <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow group flex flex-col">
+                <div class="h-64 bg-gray-200 relative overflow-hidden">
+                    <img src="./ngiromountain.jpg" alt="Mount Ngiro Ecosystem" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-8 flex flex-col flex-grow">
+                    <div class="text-xs font-bold text-brand-gold uppercase tracking-wider mb-2">Conservation</div>
+                    <h3 class="text-2xl font-serif font-bold mb-3 line-clamp-2"><a href="blog-template.html" class="hover:text-brand-green">The Sacred Ecosystem of Mount Ngiro</a></h3>
+                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">Mount Ngiro is one of the most ecologically unique mountains in northern Kenya. Learn how our community protects it.</p>
+                    <div class="mt-auto pt-4">
+                        <a href="blog-template.html" class="text-brand-green font-medium hover:text-brand-gold transition-colors">Read Article &rarr;</a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark text-white py-8 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-gray-400 text-sm">&copy; 2026 Ngiro Treasures. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

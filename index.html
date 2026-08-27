@@ -41,6 +41,23 @@
             background-position: center;
         }
     </style>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'YOUR_PIXEL_ID');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
 </head>
 <body class="bg-brand-light font-sans text-brand-dark antialiased">
 
@@ -55,6 +72,7 @@
                     <a href="#" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Home</a>
                     <a href="#about" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Our Story</a>
                     <a href="#products" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Products</a>
+                    <a href="blog.html" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Journal</a>
                     <a href="#impact" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Impact</a>
                     <a href="order.html" class="bg-brand-green text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-green-800 transition-colors">Order Now</a>
                 </div>
