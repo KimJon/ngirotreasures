@@ -78,7 +78,29 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
             <!-- Stats -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-500 text-sm">Site Visits</p>
+                            <p id="statVisits" class="text-3xl font-bold text-brand-dark mt-1">0</p>
+                        </div>
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 text-xl">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-500 text-sm">WhatsApp Clicks</p>
+                            <p id="statWhatsApp" class="text-3xl font-bold text-brand-dark mt-1">0</p>
+                        </div>
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-500 text-xl">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                    </div>
+                </div>
                 <div class="bg-white rounded-xl shadow-sm p-6">
                     <div class="flex items-center justify-between">
                         <div>
@@ -98,17 +120,6 @@
                         </div>
                         <div class="w-12 h-12 bg-brand-gold/10 rounded-full flex items-center justify-center text-brand-gold text-xl">
                             <i class="fa-solid fa-box"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white rounded-xl shadow-sm p-6">
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <p class="text-gray-500 text-sm">Total Pages</p>
-                            <p class="text-3xl font-bold text-brand-dark mt-1">5</p>
-                        </div>
-                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 text-xl">
-                            <i class="fa-solid fa-file"></i>
                         </div>
                     </div>
                 </div>
@@ -244,6 +255,14 @@ Use the toolbar above or type HTML directly:
             document.getElementById('loginScreen').classList.add('hidden');
             document.getElementById('adminDashboard').classList.remove('hidden');
             loadArticles();
+            loadStats();
+        }
+
+        function loadStats() {
+            const visits = localStorage.getItem('ngiro_site_visits') || '0';
+            const waClicks = localStorage.getItem('ngiro_whatsapp_clicks') || '0';
+            document.getElementById('statVisits').textContent = visits;
+            document.getElementById('statWhatsApp').textContent = waClicks;
         }
 
         function logout() {
@@ -435,6 +454,18 @@ Use the toolbar above or type HTML directly:
             </div>
         </div>
     </footer>
+
+    <!-- Floating WhatsApp & Analytics -->
+    <a href="https://wa.me/254792465156" target="_blank" onclick="incrementStat('ngiro_whatsapp_clicks')" class="fixed bottom-6 right-6 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:bg-green-600 transition-transform hover:scale-110 z-50">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    </a>
+    <script>
+        function incrementStat(statName) {
+            let count = parseInt(localStorage.getItem(statName) || '0');
+            localStorage.setItem(statName, count + 1);
+        }
+        incrementStat('ngiro_site_visits');
+    <\/script>
 </body>
 </html>`;
 
