@@ -39,10 +39,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap');
         
         .hero-section {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('./ngiromountain.jpg?v=3');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            /* Background now handled by JS slider */
         }
         
         .mountain-section {
@@ -118,8 +115,16 @@
 
 
     <!-- SECTION 1: HERO SECTION -->
-    <section class="hero-section min-h-screen flex items-center pt-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section class="hero-section relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <!-- Slider Backgrounds -->
+        <div id="hero-slider" class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-100 hero-slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('./ngiromountain.jpg');"></div>
+            <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0 hero-slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('./honey presentation.jpg');"></div>
+            <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0 hero-slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('./ngiro stalls.jpeg');"></div>
+            <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0 hero-slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('./ngiro honey display.jpeg');"></div>
+        </div>
+
+        <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-6 leading-tight drop-shadow-lg">
                 Ngiro Treasures:<br>Nature's Best Kept Secret
             </h1>
@@ -527,6 +532,19 @@
         // Initialize on load
         document.addEventListener('DOMContentLoaded', () => {
             renderProducts();
+            
+            // Hero Slider Logic
+            const slides = document.querySelectorAll('.hero-slide');
+            if(slides.length > 0) {
+                let currentSlide = 0;
+                setInterval(() => {
+                    slides[currentSlide].classList.remove('opacity-100');
+                    slides[currentSlide].classList.add('opacity-0');
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    slides[currentSlide].classList.remove('opacity-0');
+                    slides[currentSlide].classList.add('opacity-100');
+                }, 4000);
+            }
         });
 
         function incrementStat(statName) {
