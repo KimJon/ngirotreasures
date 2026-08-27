@@ -40,5 +40,5 @@ function getCurrencySymbol(currency) {
     if (currency === 'USD') return '$';
     if (currency === 'EUR') return '€';
     if (currency === 'KES') return 'Ksh ';
-    return '$';
+    return 'Ksh ';
 }

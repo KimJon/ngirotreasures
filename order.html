@@ -68,9 +68,9 @@
                     <a href="impact.html" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Impact</a>
                     
                     <select id="currencySelector" onchange="changeCurrency(this.value)" class="bg-white border border-gray-300 text-gray-700 text-sm rounded-md focus:ring-brand-green focus:border-brand-green block p-2 outline-none cursor-pointer shadow-sm">
+                        <option value="KES" selected>KES (Ksh)</option>
                         <option value="USD">USD ($)</option>
                         <option value="EUR">EUR (€)</option>
-                        <option value="KES">KES (Ksh)</option>
                     </select>
 
                     <a href="order.html" class="relative text-gray-700 hover:text-brand-green transition-colors flex items-center" aria-label="Cart">
@@ -91,9 +91,9 @@
                 <a href="impact.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-green hover:bg-gray-50 transition-colors">Impact</a>
                 <div class="px-3 py-2">
                     <select id="mobileCurrencySelector" onchange="changeCurrency(this.value)" class="bg-white border border-gray-300 text-gray-700 text-sm rounded-md focus:ring-brand-green focus:border-brand-green block p-2 outline-none w-full shadow-sm">
+                        <option value="KES" selected>KES (Ksh)</option>
                         <option value="USD">USD ($)</option>
                         <option value="EUR">EUR (€)</option>
-                        <option value="KES">KES (Ksh)</option>
                     </select>
                 </div>
                 <div class="px-3 py-2">
@@ -224,7 +224,7 @@
             if (!container) return;
 
             const allProducts = JSON.parse(localStorage.getItem('ngiro_custom_products') || 'null') || ngiroProducts;
-            const currency = localStorage.getItem('ngiro_currency') || 'USD';
+            const currency = localStorage.getItem('ngiro_currency') || 'KES';
             const symbol = getCurrencySymbol(currency);
 
             const sel = document.getElementById('currencySelector');
@@ -239,7 +239,7 @@
                             class="h-5 w-5 text-brand-green border-gray-300 rounded focus:ring-brand-green">
                         <span class="ml-3 text-gray-700 font-medium">${p.name}</span>
                     </span>
-                    <span class="text-brand-green font-bold text-sm">${symbol}${(p.prices[currency] || p.prices['USD'] || 0).toFixed(2)}</span>
+                    <span class="text-brand-green font-bold text-sm">${symbol}${(p.prices[currency] || p.prices['KES'] || 0).toFixed(2)}</span>
                 </label>
             `).join('');
 
@@ -290,13 +290,13 @@
 
         function updateTotal() {
             const allProducts = JSON.parse(localStorage.getItem('ngiro_custom_products') || 'null') || ngiroProducts;
-            const currency = localStorage.getItem('ngiro_currency') || 'USD';
+            const currency = localStorage.getItem('ngiro_currency') || 'KES';
             const symbol = getCurrencySymbol(currency);
 
             let total = 0;
             allProducts.forEach(p => {
                 const el = document.getElementById('product_' + p.id);
-                if (el && el.checked) total += (p.prices[currency] || p.prices['USD'] || 0);
+                if (el && el.checked) total += (p.prices[currency] || p.prices['KES'] || 0);
             });
 
             const box = document.getElementById('order-total-box');
@@ -312,7 +312,7 @@
         function submitOrder(e) {
             e.preventDefault();
             const allProducts = JSON.parse(localStorage.getItem('ngiro_custom_products') || 'null') || ngiroProducts;
-            const currency = localStorage.getItem('ngiro_currency') || 'USD';
+            const currency = localStorage.getItem('ngiro_currency') || 'KES';
             const symbol = getCurrencySymbol(currency);
 
             let products = [];
@@ -320,7 +320,7 @@
             allProducts.forEach(p => {
                 const el = document.getElementById('product_' + p.id);
                 if (el && el.checked) {
-                    const price = p.prices[currency] || p.prices['USD'] || 0;
+                    const price = p.prices[currency] || p.prices['KES'] || 0;
                     products.push(`${p.name} – ${symbol}${price.toFixed(2)}`);
                     total += price;
                 }

@@ -83,9 +83,9 @@
                     <a href="impact.html" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Impact</a>
                     
                     <select id="currencySelector" onchange="changeCurrency(this.value)" class="bg-white border border-gray-300 text-gray-700 text-sm rounded-md focus:ring-brand-green focus:border-brand-green block p-2 outline-none cursor-pointer shadow-sm">
+                        <option value="KES" selected>KES (Ksh)</option>
                         <option value="USD">USD ($)</option>
                         <option value="EUR">EUR (€)</option>
-                        <option value="KES">KES (Ksh)</option>
                     </select>
 
                     <a href="order.html" class="relative text-gray-700 hover:text-brand-green transition-colors flex items-center" aria-label="Cart">
@@ -106,9 +106,9 @@
                 <a href="impact.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-green hover:bg-white transition-colors">Impact</a>
                 <div class="px-3 py-2">
                     <select id="mobileCurrencySelector" onchange="changeCurrency(this.value)" class="bg-white border border-gray-300 text-gray-700 text-sm rounded-md focus:ring-brand-green focus:border-brand-green block p-2 outline-none w-full shadow-sm">
+                        <option value="KES" selected>KES (Ksh)</option>
                         <option value="USD">USD ($)</option>
                         <option value="EUR">EUR (€)</option>
-                        <option value="KES">KES (Ksh)</option>
                     </select>
                 </div>
                 <div class="px-3 py-2">
@@ -373,7 +373,7 @@
             const container = document.getElementById('dynamic-products');
             if (!container) return;
 
-            const currency = localStorage.getItem('ngiro_currency') || 'USD';
+            const currency = localStorage.getItem('ngiro_currency') || 'KES';
             const symbol = getCurrencySymbol(currency);
             
             const selector = document.getElementById('currencySelector');
