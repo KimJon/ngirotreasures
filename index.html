@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -56,6 +56,7 @@
 <body class="bg-brand-light font-sans text-brand-dark antialiased">
 
     <!-- Navigation -->
+        <!-- Navigation -->
     <nav class="fixed w-full z-50 bg-brand-light/90 backdrop-blur-sm border-b border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
@@ -76,16 +77,16 @@
                 </div>
 
                 <div class="hidden md:flex space-x-6 items-center">
-                    <a href="#" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Home</a>
+                    <a href="index.html" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Home</a>
                     <a href="about.html" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Our Story</a>
-                    <a href="#products" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Products</a>
+                    <a href="index.html#products" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Products</a>
                     <a href="blog.html" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Journal</a>
                     <a href="impact.html" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Impact</a>
                     
                     <select id="currencySelector" onchange="changeCurrency(this.value)" class="bg-white border border-gray-300 text-gray-700 text-sm rounded-md focus:ring-brand-green focus:border-brand-green block p-2 outline-none cursor-pointer shadow-sm">
                         <option value="KES" selected>KES (Ksh)</option>
                         <option value="USD">USD ($)</option>
-                        <option value="EUR">EUR (â‚¬)</option>
+                        <option value="EUR">EUR (€)</option>
                     </select>
 
                     <a href="order.html" class="relative text-gray-700 hover:text-brand-green transition-colors flex items-center" aria-label="Cart">
@@ -99,24 +100,22 @@
 
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="hidden md:hidden pb-4 space-y-2 border-t border-gray-200 pt-4">
-                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-green hover:bg-white transition-colors">Home</a>
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-green hover:bg-white transition-colors">Home</a>
                 <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-green hover:bg-white transition-colors">Our Story</a>
-                <a href="#products" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-green hover:bg-white transition-colors">Products</a>
+                <a href="index.html#products" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-green hover:bg-white transition-colors">Products</a>
                 <a href="blog.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-green hover:bg-white transition-colors">Journal</a>
                 <a href="impact.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-green hover:bg-white transition-colors">Impact</a>
                 <div class="px-3 py-2">
                     <select id="mobileCurrencySelector" onchange="changeCurrency(this.value)" class="bg-white border border-gray-300 text-gray-700 text-sm rounded-md focus:ring-brand-green focus:border-brand-green block p-2 outline-none w-full shadow-sm">
                         <option value="KES" selected>KES (Ksh)</option>
                         <option value="USD">USD ($)</option>
-                        <option value="EUR">EUR (â‚¬)</option>
+                        <option value="EUR">EUR (€)</option>
                     </select>
-                </div>
-                <div class="px-3 py-2">
-                    <a href="order.html" class="block w-full text-center bg-brand-green text-white px-6 py-3 rounded-full text-base font-medium hover:bg-green-800 transition-colors">Checkout</a>
                 </div>
             </div>
         </div>
     </nav>
+
 
     <!-- SECTION 1: HERO SECTION -->
     <section class="hero-section min-h-screen flex items-center pt-20">
@@ -249,7 +248,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Video 1 -->
                 <div class="rounded-2xl overflow-hidden shadow-lg group bg-brand-light">
-                    <video src="./honey hives.mp4" controls class="w-full aspect-[9/16] object-cover bg-black" poster="./honey presentation.jpg"></video>
+                    <video src="./honey hives.mp4" controls class="w-full aspect-[9/16] object-cover bg-black"></video>
                     <div class="p-4 bg-white">
                         <h4 class="font-bold text-brand-dark">Our Traditional Hives</h4>
                         <p class="text-sm text-gray-500">Sustainably harvesting honey</p>
@@ -257,7 +256,7 @@
                 </div>
                 <!-- Video 2 -->
                 <div class="rounded-2xl overflow-hidden shadow-lg group bg-brand-light">
-                    <video src="./moran video.mp4" controls class="w-full aspect-[9/16] object-cover bg-black" poster="./honey presentation.jpg"></video>
+                    <video src="./moran video.mp4" controls class="w-full aspect-[9/16] object-cover bg-black"></video>
                     <div class="p-4 bg-white">
                         <h4 class="font-bold text-brand-dark">The Samburu Morans</h4>
                         <p class="text-sm text-gray-500">Preserving our heritage</p>
@@ -265,7 +264,7 @@
                 </div>
                 <!-- Video 3 -->
                 <div class="rounded-2xl overflow-hidden shadow-lg group bg-brand-light">
-                    <video src="./ngiro CEO.mp4" controls class="w-full aspect-[9/16] object-cover bg-black" poster="./honey presentation.jpg"></video>
+                    <video src="./ngiro CEO.mp4" controls class="w-full aspect-[9/16] object-cover bg-black"></video>
                     <div class="p-4 bg-white">
                         <h4 class="font-bold text-brand-dark">A Word from Our Founder</h4>
                         <p class="text-sm text-gray-500">Our mission and promise</p>
@@ -273,7 +272,7 @@
                 </div>
                 <!-- Video 4 -->
                 <div class="rounded-2xl overflow-hidden shadow-lg group bg-brand-light">
-                    <video src="./video 1 woman.mp4" controls class="w-full aspect-[9/16] object-cover bg-black" poster="./honey presentation.jpg"></video>
+                    <video src="./video 1 woman.mp4" controls class="w-full aspect-[9/16] object-cover bg-black"></video>
                     <div class="p-4 bg-white">
                         <h4 class="font-bold text-brand-dark">Community Impact</h4>
                         <p class="text-sm text-gray-500">Empowering local women</p>
@@ -477,7 +476,8 @@
             updateCartBadge();
         }
 
-        // --- Cart Log        function addToCart(productId) {
+        // --- Cart Logic ---
+        function addToCart(productId) {
             let cart = JSON.parse(localStorage.getItem('ngiro_cart') || '[]');
             let cartQty = JSON.parse(localStorage.getItem('ngiro_cart_qty') || '{}');
             
@@ -537,4 +537,5 @@
     </script>
 </body>
 </html>
+
 

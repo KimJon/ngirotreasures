@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -57,24 +57,66 @@
     <div id="adminDashboard" class="hidden">
         
         <!-- Admin Nav -->
-        <nav class="bg-brand-dark text-white shadow-lg">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex justify-between h-16 items-center">
-                    <div class="flex items-center space-x-4">
-                        <img src="./logo.jpg" alt="Logo" class="h-10 w-auto rounded">
-                        <span class="font-serif font-bold text-lg">Admin Panel</span>
-                    </div>
-                    <div class="flex items-center space-x-6">
-                        <a href="index.html" class="text-gray-300 hover:text-white text-sm transition-colors">
-                            <i class="fa-solid fa-globe mr-1"></i> View Site
-                        </a>
-                        <button onclick="logout()" class="text-gray-300 hover:text-red-400 text-sm transition-colors">
-                            <i class="fa-solid fa-right-from-bracket mr-1"></i> Logout
-                        </button>
-                    </div>
+            <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-brand-light/90 backdrop-blur-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <a href="index.html" class="flex-shrink-0 flex items-center space-x-3">
+                    <img src="./logo.jpg" alt="Ngiro Treasures Logo" class="h-12 w-12 rounded-full object-cover shadow-sm">
+                    <span class="text-2xl font-serif font-bold text-brand-green">Ngiro Treasures</span>
+                </a>
+                
+                <!-- Hamburger Button (Mobile) -->
+                <div class="md:hidden flex items-center space-x-4">
+                    <a href="order.html" class="relative text-gray-700 hover:text-brand-green transition-colors flex items-center" aria-label="Cart">
+                        <i class="fa-solid fa-cart-shopping text-xl"></i>
+                        <span id="mobile-cart-badge" class="hidden absolute -top-2 -right-2 bg-brand-gold text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">0</span>
+                    </a>
+                    <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="text-gray-700 hover:text-brand-green focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+
+                <div class="hidden md:flex space-x-6 items-center">
+                    <a href="index.html" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Home</a>
+                    <a href="about.html" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Our Story</a>
+                    <a href="index.html#products" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Products</a>
+                    <a href="blog.html" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Journal</a>
+                    <a href="impact.html" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Impact</a>
+                    
+                    <select id="currencySelector" onchange="changeCurrency(this.value)" class="bg-white border border-gray-300 text-gray-700 text-sm rounded-md focus:ring-brand-green focus:border-brand-green block p-2 outline-none cursor-pointer shadow-sm">
+                        <option value="KES" selected>KES (Ksh)</option>
+                        <option value="USD">USD ($)</option>
+                        <option value="EUR">EUR (€)</option>
+                    </select>
+
+                    <a href="order.html" class="relative text-gray-700 hover:text-brand-green transition-colors flex items-center" aria-label="Cart">
+                        <i class="fa-solid fa-cart-shopping text-xl"></i>
+                        <span id="cart-badge" class="hidden absolute -top-2 -right-2 bg-brand-gold text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">0</span>
+                    </a>
+
+                    <a href="order.html" class="bg-brand-green text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-green-800 transition-colors">Checkout</a>
                 </div>
             </div>
-        </nav>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4 space-y-2 border-t border-gray-200 pt-4">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-green hover:bg-white transition-colors">Home</a>
+                <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-green hover:bg-white transition-colors">Our Story</a>
+                <a href="index.html#products" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-green hover:bg-white transition-colors">Products</a>
+                <a href="blog.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-green hover:bg-white transition-colors">Journal</a>
+                <a href="impact.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-green hover:bg-white transition-colors">Impact</a>
+                <div class="px-3 py-2">
+                    <select id="mobileCurrencySelector" onchange="changeCurrency(this.value)" class="bg-white border border-gray-300 text-gray-700 text-sm rounded-md focus:ring-brand-green focus:border-brand-green block p-2 outline-none w-full shadow-sm">
+                        <option value="KES" selected>KES (Ksh)</option>
+                        <option value="USD">USD ($)</option>
+                        <option value="EUR">EUR (€)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </nav>
+
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
@@ -170,7 +212,7 @@
                             <input type="number" id="prod-usd" step="0.01" placeholder="24.00" class="w-full border border-gray-300 rounded-lg p-3 focus:ring-brand-green focus:border-brand-green">
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Price (EUR €)</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Price (EUR â‚¬)</label>
                             <input type="number" id="prod-eur" step="0.01" placeholder="22.00" class="w-full border border-gray-300 rounded-lg p-3 focus:ring-brand-green focus:border-brand-green">
                         </div>
                         <div>
@@ -368,7 +410,7 @@ Use the toolbar above or type HTML directly:
 
             loadProducts();
             loadStats();
-            alert(`✅ "${name}" has been added to the store!`);
+            alert(`âœ… "${name}" has been added to the store!`);
         }
 
         function deleteProduct(id) {
@@ -386,12 +428,12 @@ Use the toolbar above or type HTML directly:
 // Helper to get currency symbol
 function getCurrencySymbol(currency) {
     if (currency === 'USD') return '$';
-    if (currency === 'EUR') return '€';
+    if (currency === 'EUR') return 'â‚¬';
     if (currency === 'KES') return 'Ksh ';
     return '$';
 }`;
             navigator.clipboard.writeText(jsCode).then(() => {
-                alert('✅ products.js code copied to clipboard!\n\nTo make your products live for everyone:\n1. Open "products.js" in your code editor.\n2. Paste the copied code (replacing the old code).\n3. Commit and Push to GitHub.');
+                alert('âœ… products.js code copied to clipboard!\n\nTo make your products live for everyone:\n1. Open "products.js" in your code editor.\n2. Paste the copied code (replacing the old code).\n3. Commit and Push to GitHub.');
             }).catch(err => {
                 alert('Failed to copy. Check console for details.');
                 console.error(err);
@@ -417,7 +459,7 @@ function getCurrencySymbol(currency) {
                         </div>
                     </div>
                     <div class="flex items-center space-x-4 text-sm">
-                        <span class="text-gray-600">$${p.prices.USD} / €${p.prices.EUR} / Ksh ${p.prices.KES}</span>
+                        <span class="text-gray-600">$${p.prices.USD} / â‚¬${p.prices.EUR} / Ksh ${p.prices.KES}</span>
                         <button onclick="deleteProduct('${p.id}')" class="text-gray-300 hover:text-red-500 transition-colors" title="Delete">
                             <i class="fa-solid fa-trash"></i>
                         </button>
@@ -501,7 +543,7 @@ function getCurrencySymbol(currency) {
             // Refresh list
             loadArticles();
 
-            alert('✅ Article published successfully!\n\nThe article HTML has been generated and copied to your clipboard.\n\nTo make it live:\n1. Create a new file called "' + slug + '.html" in your project folder.\n2. Paste the copied content into that file.\n3. Push to GitHub.\n\nThe blog index page will automatically show it from local storage.');
+            alert('âœ… Article published successfully!\n\nThe article HTML has been generated and copied to your clipboard.\n\nTo make it live:\n1. Create a new file called "' + slug + '.html" in your project folder.\n2. Paste the copied content into that file.\n3. Push to GitHub.\n\nThe blog index page will automatically show it from local storage.');
         }
 
         // Generate full HTML page for article
@@ -743,3 +785,4 @@ function getCurrencySymbol(currency) {
     </script>
 </body>
 </html>
+

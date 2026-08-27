@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -41,44 +41,66 @@
 <body class="font-sans text-brand-dark bg-brand-light flex flex-col min-h-screen">
 
     <!-- Navigation -->
-    <nav class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-40">
+        <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-brand-light/90 backdrop-blur-sm border-b border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
+            <div class="flex justify-between h-20 items-center">
                 <a href="index.html" class="flex-shrink-0 flex items-center space-x-3">
                     <img src="./logo.jpg" alt="Ngiro Treasures Logo" class="h-12 w-12 rounded-full object-cover shadow-sm">
-                    <span class="text-2xl font-serif font-bold text-brand-green hidden sm:inline-block">Ngiro Treasures</span>
+                    <span class="text-2xl font-serif font-bold text-brand-green">Ngiro Treasures</span>
                 </a>
                 
                 <!-- Hamburger Button (Mobile) -->
-                <div class="md:hidden flex items-center">
+                <div class="md:hidden flex items-center space-x-4">
+                    <a href="order.html" class="relative text-gray-700 hover:text-brand-green transition-colors flex items-center" aria-label="Cart">
+                        <i class="fa-solid fa-cart-shopping text-xl"></i>
+                        <span id="mobile-cart-badge" class="hidden absolute -top-2 -right-2 bg-brand-gold text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">0</span>
+                    </a>
                     <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="text-gray-700 hover:text-brand-green focus:outline-none">
                         <i class="fa-solid fa-bars text-2xl"></i>
                     </button>
                 </div>
 
-                <div class="hidden md:flex items-center space-x-6">
+                <div class="hidden md:flex space-x-6 items-center">
                     <a href="index.html" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Home</a>
                     <a href="about.html" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Our Story</a>
                     <a href="index.html#products" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Products</a>
                     <a href="blog.html" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Journal</a>
-                    <a href="impact.html" class="text-brand-green px-3 py-2 text-sm font-medium transition-colors border-b-2 border-brand-green">Impact</a>
-                    <a href="order.html" class="bg-brand-green text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-green-800 transition-colors">Order Now</a>
+                    <a href="impact.html" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Impact</a>
+                    
+                    <select id="currencySelector" onchange="changeCurrency(this.value)" class="bg-white border border-gray-300 text-gray-700 text-sm rounded-md focus:ring-brand-green focus:border-brand-green block p-2 outline-none cursor-pointer shadow-sm">
+                        <option value="KES" selected>KES (Ksh)</option>
+                        <option value="USD">USD ($)</option>
+                        <option value="EUR">EUR (€)</option>
+                    </select>
+
+                    <a href="order.html" class="relative text-gray-700 hover:text-brand-green transition-colors flex items-center" aria-label="Cart">
+                        <i class="fa-solid fa-cart-shopping text-xl"></i>
+                        <span id="cart-badge" class="hidden absolute -top-2 -right-2 bg-brand-gold text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">0</span>
+                    </a>
+
+                    <a href="order.html" class="bg-brand-green text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-green-800 transition-colors">Checkout</a>
                 </div>
             </div>
 
             <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden pb-4 space-y-2 border-t border-gray-100 pt-4">
-                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-green hover:bg-gray-50 transition-colors">Home</a>
-                <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-green hover:bg-gray-50 transition-colors">Our Story</a>
-                <a href="index.html#products" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-green hover:bg-gray-50 transition-colors">Products</a>
-                <a href="blog.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-green hover:bg-gray-50 transition-colors">Journal</a>
-                <a href="impact.html" class="block px-3 py-2 rounded-md text-base font-medium text-brand-green bg-gray-50 transition-colors">Impact</a>
+            <div id="mobile-menu" class="hidden md:hidden pb-4 space-y-2 border-t border-gray-200 pt-4">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-green hover:bg-white transition-colors">Home</a>
+                <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-green hover:bg-white transition-colors">Our Story</a>
+                <a href="index.html#products" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-green hover:bg-white transition-colors">Products</a>
+                <a href="blog.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-green hover:bg-white transition-colors">Journal</a>
+                <a href="impact.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-green hover:bg-white transition-colors">Impact</a>
                 <div class="px-3 py-2">
-                    <a href="order.html" class="block w-full text-center bg-brand-green text-white px-6 py-3 rounded-full text-base font-medium hover:bg-green-800 transition-colors">Order Now</a>
+                    <select id="mobileCurrencySelector" onchange="changeCurrency(this.value)" class="bg-white border border-gray-300 text-gray-700 text-sm rounded-md focus:ring-brand-green focus:border-brand-green block p-2 outline-none w-full shadow-sm">
+                        <option value="KES" selected>KES (Ksh)</option>
+                        <option value="USD">USD ($)</option>
+                        <option value="EUR">EUR (€)</option>
+                    </select>
                 </div>
             </div>
         </div>
     </nav>
+
 
     <!-- Hero Banner -->
     <section class="relative h-[50vh] flex items-center justify-center overflow-hidden">
@@ -110,7 +132,7 @@
                     <p class="text-gray-600 text-sm">Chemical Additives</p>
                 </div>
                 <div class="p-6 bg-brand-light rounded-2xl">
-                    <div class="text-4xl font-bold text-brand-gold mb-2">∞</div>
+                    <div class="text-4xl font-bold text-brand-gold mb-2">âˆž</div>
                     <p class="text-gray-600 text-sm">Generations of Tradition</p>
                 </div>
             </div>
@@ -216,3 +238,4 @@
     </script>
 </body>
 </html>
+
