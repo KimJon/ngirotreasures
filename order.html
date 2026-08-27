@@ -71,7 +71,7 @@
                     <select id="currencySelector" onchange="changeCurrency(this.value)" class="bg-white border border-gray-300 text-gray-700 text-sm rounded-md focus:ring-brand-green focus:border-brand-green block p-2 outline-none cursor-pointer shadow-sm">
                         <option value="KES" selected>KES (Ksh)</option>
                         <option value="USD">USD ($)</option>
-                        <option value="EUR">EUR (€)</option>
+                        <option value="EUR">EUR (â‚¬)</option>
                     </select>
 
                     <a href="order.html" class="relative text-gray-700 hover:text-brand-green transition-colors flex items-center" aria-label="Cart">
@@ -94,7 +94,7 @@
                     <select id="mobileCurrencySelector" onchange="changeCurrency(this.value)" class="bg-white border border-gray-300 text-gray-700 text-sm rounded-md focus:ring-brand-green focus:border-brand-green block p-2 outline-none w-full shadow-sm">
                         <option value="KES" selected>KES (Ksh)</option>
                         <option value="USD">USD ($)</option>
-                        <option value="EUR">EUR (€)</option>
+                        <option value="EUR">EUR (â‚¬)</option>
                     </select>
                 </div>
             </div>
@@ -160,27 +160,27 @@
                         <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
                             <label class="flex flex-col items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-brand-green transition-colors has-[:checked]:border-brand-green has-[:checked]:bg-green-50">
                                 <input type="radio" name="payment" value="M-PESA" class="sr-only" required onchange="document.getElementById('mpesa-info').classList.remove('hidden')">
-                                <span class="text-2xl mb-1">📱</span>
+                                <span class="text-2xl mb-1">ðŸ“±</span>
                                 <span class="text-xs font-bold text-gray-700">M-PESA</span>
                             </label>
                             <label class="flex flex-col items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-brand-green transition-colors has-[:checked]:border-brand-green has-[:checked]:bg-green-50">
                                 <input type="radio" name="payment" value="PayPal" class="sr-only" onchange="document.getElementById('mpesa-info').classList.add('hidden')">
-                                <span class="text-2xl mb-1">💳</span>
+                                <span class="text-2xl mb-1">ðŸ’³</span>
                                 <span class="text-xs font-bold text-gray-700">PayPal</span>
                             </label>
                             <label class="flex flex-col items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-brand-green transition-colors has-[:checked]:border-brand-green has-[:checked]:bg-green-50">
                                 <input type="radio" name="payment" value="Bank Transfer" class="sr-only" onchange="document.getElementById('mpesa-info').classList.add('hidden')">
-                                <span class="text-2xl mb-1">🏦</span>
+                                <span class="text-2xl mb-1">ðŸ¦</span>
                                 <span class="text-xs font-bold text-gray-700">Bank Transfer</span>
                             </label>
                             <label class="flex flex-col items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-brand-green transition-colors has-[:checked]:border-brand-green has-[:checked]:bg-green-50">
                                 <input type="radio" name="payment" value="SWIFT" class="sr-only" onchange="document.getElementById('mpesa-info').classList.add('hidden')">
-                                <span class="text-2xl mb-1">🌍</span>
+                                <span class="text-2xl mb-1">ðŸŒ</span>
                                 <span class="text-xs font-bold text-gray-700">SWIFT</span>
                             </label>
                             <label class="flex flex-col items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-brand-green transition-colors has-[:checked]:border-brand-green has-[:checked]:bg-green-50">
                                 <input type="radio" name="payment" value="Crypto" class="sr-only" onchange="document.getElementById('mpesa-info').classList.add('hidden')">
-                                <span class="text-2xl mb-1">₿</span>
+                                <span class="text-2xl mb-1">â‚¿</span>
                                 <span class="text-xs font-bold text-gray-700">Crypto</span>
                             </label>
                         </div>
@@ -372,7 +372,7 @@
                     if (qty > 0) {
                         const price = p.prices[currency] || p.prices['KES'] || 0;
                         const lineTotal = price * qty;
-                        products.push(`${qty}x ${p.name} â€“ ${symbol}${lineTotal.toFixed(2)}`);
+                        products.push(`${qty}x ${p.name} Ã¢â‚¬â€œ ${symbol}${lineTotal.toFixed(2)}`);
                         total += lineTotal;
                     }
                 }
@@ -388,7 +388,7 @@
             const paymentEl = document.querySelector('input[name="payment"]:checked');
             const payment = paymentEl ? paymentEl.value : 'Not specified';
 
-            let message = `*New Order â€“ Ngiro Treasures* ðŸŒ¿\n\n`;
+            let message = `Hello Ngiro Treasures, I would like to place an order. 📦\n\n`;
             message += `*Customer:* ${name}\n`;
             message += `*Phone:* ${phone}\n`;
             if (email) message += `*Email:* ${email}\n`;
@@ -416,12 +416,13 @@
     </script>
 
     <!-- Floating WhatsApp -->
-    <a href="https://wa.me/254792465156" target="_blank" onclick="incrementStat('ngiro_whatsapp_clicks')" class="fixed bottom-6 right-6 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:bg-green-600 transition-transform hover:scale-110 z-50">
+    <a href="https://wa.me/254792465156?text=Hello%20Ngiro%20Treasures,%20I%20would%20like%20to%20inquire%20about%20your%20products." target="_blank" onclick="incrementStat('ngiro_whatsapp_clicks')" class="fixed bottom-6 right-6 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:bg-green-600 transition-transform hover:scale-110 z-50">
         <span class="sr-only">Chat with us on WhatsApp</span>
         <i class="fa-brands fa-whatsapp text-3xl"></i>
     </a>
 </body>
 </html>
+
 
 
 
