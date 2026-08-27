@@ -1,4 +1,4 @@
-﻿
+
 const ngiroProducts = [
     {
         id: 'honey_1kg',
@@ -60,7 +60,7 @@ const ngiroProducts = [
 // Helper to get currency symbol
 function getCurrencySymbol(currency) {
     if (currency === 'USD') return '$';
-    if (currency === 'EUR') return 'â‚¬';
+    if (currency === 'EUR') return '\u20AC';
     if (currency === 'KES') return 'Ksh ';
     return 'Ksh ';
 }
