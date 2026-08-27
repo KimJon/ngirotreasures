@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Now | Ngiro Treasures</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-gold': '#D4AF37',
+                        'brand-green': '#2D5A27',
+                        'brand-dark': '#1A1A1A',
+                        'brand-light': '#F9F6F0'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap');
+    </style>
+</head>
+<body class="bg-brand-light font-sans text-brand-dark antialiased min-h-screen flex flex-col">
+
+    <!-- Navigation -->
+    <nav class="w-full bg-white border-b border-gray-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <a href="index.html" class="flex-shrink-0 flex items-center">
+                    <img src="./logo.jpg" alt="Ngiro Treasures Logo" class="h-14 w-auto rounded-md shadow-sm">
+                </a>
+                <div class="flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors"><i class="fa-solid fa-arrow-left mr-2"></i> Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Order Form Section -->
+    <main class="flex-grow py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div class="bg-brand-green py-8 px-10 text-center">
+                <h1 class="text-3xl font-serif font-bold text-white mb-2">Complete Your Order</h1>
+                <p class="text-brand-light font-light text-sm">Fill in your details below and we will contact you immediately to arrange delivery.</p>
+            </div>
+            
+            <div class="p-10">
+                <!-- We will use a script to generate a WhatsApp message so it actually works for the user -->
+                <form id="orderForm" onsubmit="submitOrder(event)" class="space-y-6">
+                    
+                    <!-- Product Selection -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Select Product(s) *</label>
+                        <div class="space-y-3">
+                            <label class="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
+                                <input type="checkbox" id="product_honey" value="Raw Wild Honey" class="h-5 w-5 text-brand-green border-gray-300 rounded focus:ring-brand-green">
+                                <span class="ml-3 text-gray-700 font-medium">🍯 Raw Wild Honey - $24.00</span>
+                            </label>
+                            <label class="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
+                                <input type="checkbox" id="product_seketet" value="Seketet Herbal Leaves" class="h-5 w-5 text-brand-green border-gray-300 rounded focus:ring-brand-green">
+                                <span class="ml-3 text-gray-700 font-medium">🌿 Seketet Herbal Leaves - $18.00</span>
+                            </label>
+                            <label class="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
+                                <input type="checkbox" id="product_soursop" value="Soursop Leaves" class="h-5 w-5 text-brand-green border-gray-300 rounded focus:ring-brand-green">
+                                <span class="ml-3 text-gray-700 font-medium">🍃 Soursop Leaves - $22.00</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Name -->
+                        <div>
+                            <label for="fullName" class="block text-sm font-medium text-gray-700">Full Name *</label>
+                            <input type="text" id="fullName" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-brand-green focus:border-brand-green sm:text-sm p-3 border">
+                        </div>
+                        
+                        <!-- Phone -->
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number (WhatsApp) *</label>
+                            <input type="tel" id="phone" required placeholder="e.g. 0792465156" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-brand-green focus:border-brand-green sm:text-sm p-3 border">
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                        <input type="email" id="email" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-brand-green focus:border-brand-green sm:text-sm p-3 border">
+                    </div>
+
+                    <!-- Delivery Address -->
+                    <div>
+                        <label for="address" class="block text-sm font-medium text-gray-700">Delivery Address / Location *</label>
+                        <textarea id="address" rows="3" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-brand-green focus:border-brand-green sm:text-sm p-3 border"></textarea>
+                    </div>
+
+                    <!-- Additional Notes -->
+                    <div>
+                        <label for="notes" class="block text-sm font-medium text-gray-700">Additional Notes (Optional)</label>
+                        <textarea id="notes" rows="2" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-brand-green focus:border-brand-green sm:text-sm p-3 border"></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="pt-4">
+                        <button type="submit" class="w-full flex justify-center py-4 px-4 border border-transparent rounded-md shadow-sm text-lg font-medium text-white bg-brand-green hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-green transition-colors">
+                            Place Order via WhatsApp <i class="fa-brands fa-whatsapp ml-2 mt-1"></i>
+                        </button>
+                        <p class="text-xs text-center text-gray-500 mt-4">By placing this order, you will be redirected to WhatsApp to confirm your details directly with our team.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark text-white py-8 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-gray-400 text-sm">&copy; 2026 Ngiro Treasures. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Check URL parameters to auto-select a product if clicked from a specific Add to Cart button
+        document.addEventListener("DOMContentLoaded", () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const product = urlParams.get('product');
+            if(product === 'honey') document.getElementById('product_honey').checked = true;
+            if(product === 'seketet') document.getElementById('product_seketet').checked = true;
+            if(product === 'soursop') document.getElementById('product_soursop').checked = true;
+        });
+
+        function submitOrder(e) {
+            e.preventDefault();
+            
+            // Gather products
+            let products = [];
+            if(document.getElementById('product_honey').checked) products.push("Raw Wild Honey");
+            if(document.getElementById('product_seketet').checked) products.push("Seketet Herbal Leaves");
+            if(document.getElementById('product_soursop').checked) products.push("Soursop Leaves");
+            
+            if(products.length === 0) {
+                alert("Please select at least one product.");
+                return;
+            }
+
+            // Gather details
+            const name = document.getElementById('fullName').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const address = document.getElementById('address').value;
+            const notes = document.getElementById('notes').value;
+
+            // Format message
+            let message = `*New Order - Ngiro Treasures* 🌿\n\n`;
+            message += `*Customer Name:* ${name}\n`;
+            message += `*Phone:* ${phone}\n`;
+            if(email) message += `*Email:* ${email}\n`;
+            message += `*Delivery Address:* ${address}\n\n`;
+            message += `*Products Ordered:*\n- ${products.join('\n- ')}\n\n`;
+            if(notes) message += `*Notes:* ${notes}\n`;
+
+            // Encode for URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Target WhatsApp Number (Boniface's number)
+            const targetNumber = "254792465156";
+            
+            // Open WhatsApp
+            window.open(`https://wa.me/${targetNumber}?text=${encodedMessage}`, '_blank');
+        }
+    </script>
+</body>
+</html>
