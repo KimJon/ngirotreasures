@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ngiro Treasures | Sacred Wellness</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-gold': '#D4AF37',
+                        'brand-green': '#2D5A27',
+                        'brand-dark': '#1A1A1A',
+                        'brand-light': '#F9F6F0'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap');
+        
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('./NGIRO-1_260826_133228.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .mountain-section {
+            background-image: linear-gradient(rgba(45, 90, 39, 0.9), rgba(45, 90, 39, 0.9)), url('./300747.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-brand-light font-sans text-brand-dark antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-brand-light/90 backdrop-blur-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="font-serif text-2xl font-bold text-brand-green">Ngiro Treasures</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Home</a>
+                    <a href="#about" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Our Story</a>
+                    <a href="#products" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Products</a>
+                    <a href="#impact" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Impact</a>
+                    <a href="#contact" class="bg-brand-green text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-green-800 transition-colors">Order Now</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SECTION 1: HERO SECTION -->
+    <section class="hero-section min-h-screen flex items-center pt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-6 leading-tight drop-shadow-lg">
+                Treasures from the<br>Sacred Mountain
+            </h1>
+            <p class="mt-4 text-xl md:text-2xl text-gray-200 mb-10 max-w-3xl mx-auto font-light drop-shadow">
+                Pure wild honey and medicinal herbs harvested from the slopes of Mount Ngiro in Samburu County.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#products" class="bg-brand-gold text-brand-dark px-8 py-4 rounded-full font-semibold hover:bg-yellow-500 transition-colors shadow-lg text-lg">
+                    Shop Honey
+                </a>
+                <a href="#products" class="bg-white/20 backdrop-blur-sm border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-brand-dark transition-colors shadow-lg text-lg">
+                    Explore Herbal Remedies
+                </a>
+                <a href="#about" class="bg-transparent border-2 border-transparent text-white underline px-8 py-4 rounded-full font-semibold hover:text-brand-gold transition-colors text-lg">
+                    Our Story
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: OUR STORY -->
+    <section id="about" class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="text-brand-gold font-semibold tracking-wider uppercase text-sm mb-4 block">Our Heritage</span>
+            <h2 class="text-3xl md:text-5xl font-serif font-bold text-brand-green mb-8">Sacred Wellness from the Slopes of Mount Ngiro</h2>
+            <p class="text-lg md:text-xl text-gray-600 leading-relaxed mb-10 font-light">
+                Rising from the heart of Samburu County, Mount Ngiro has long been revered by local communities as a sacred mountain rich in healing plants and natural abundance. For generations, Samburu elders have relied on the mountain's herbs and wild honey for nourishment, medicine, and cultural rituals.
+                <br><br>
+                <strong>Ngiro Treasures</strong> was founded to preserve this heritage and share the mountain's natural gifts with the world.
+            </p>
+            <a href="#" class="inline-block border-2 border-brand-green text-brand-green px-8 py-3 rounded-full font-medium hover:bg-brand-green hover:text-white transition-colors">
+                Learn More About Us
+            </a>
+        </div>
+    </section>
+
+    <!-- SECTION 4: WHY OUR PRODUCTS ARE SPECIAL -->
+    <section class="py-16 bg-brand-light border-y border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="p-6">
+                    <div class="w-16 h-16 mx-auto bg-brand-green/10 rounded-full flex items-center justify-center mb-4 text-brand-green text-2xl">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg">Wild Harvested<br>Herbs</h3>
+                </div>
+                <div class="p-6">
+                    <div class="w-16 h-16 mx-auto bg-brand-gold/10 rounded-full flex items-center justify-center mb-4 text-brand-gold text-2xl">
+                        <i class="fa-solid fa-jar"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg">Pure Forest<br>Honey</h3>
+                </div>
+                <div class="p-6">
+                    <div class="w-16 h-16 mx-auto bg-gray-200 rounded-full flex items-center justify-center mb-4 text-gray-600 text-2xl">
+                        <i class="fa-solid fa-mountain"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg">From Mt. Ngiro</h3>
+                </div>
+                <div class="p-6">
+                    <div class="w-16 h-16 mx-auto bg-brand-green/10 rounded-full flex items-center justify-center mb-4 text-brand-green text-2xl">
+                        <i class="fa-solid fa-handshake"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg">Supports Samburu<br>Communities</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: FEATURED PRODUCTS -->
+    <section id="products" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-brand-dark mb-4">Featured Products</h2>
+                <p class="text-gray-600 text-lg">Pure, natural goodness delivered from the wild.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Product 1 -->
+                <div class="bg-brand-light rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow group">
+                    <div class="h-64 bg-gray-200 relative overflow-hidden">
+                        <img src="./82036.jpg" alt="Raw Wild Honey" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-8">
+                        <div class="text-xs font-bold text-brand-gold uppercase tracking-wider mb-2">Honey</div>
+                        <h3 class="text-2xl font-serif font-bold mb-3">🍯 Raw Wild Honey</h3>
+                        <p class="text-gray-600 text-sm mb-4">Harvested from traditional hives. Pure, raw, and unprocessed. Natural immune support and rich in antioxidants.</p>
+                        <div class="flex justify-between items-center mt-6">
+                            <span class="text-xl font-bold text-brand-green">$24.00</span>
+                            <button class="bg-brand-dark text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="bg-brand-light rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow group">
+                    <div class="h-64 bg-gray-200 relative overflow-hidden">
+                        <img src="./261719.jpg" alt="Seketet Herbal Leaves" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-8">
+                        <div class="text-xs font-bold text-brand-green uppercase tracking-wider mb-2">Herbal Tea</div>
+                        <h3 class="text-2xl font-serif font-bold mb-3">🌿 Seketet Leaves</h3>
+                        <p class="text-gray-600 text-sm mb-4">Traditional medicinal herb used by Samburu communities. Supports digestion and helps relieve stomach discomfort.</p>
+                        <div class="flex justify-between items-center mt-6">
+                            <span class="text-xl font-bold text-brand-green">$18.00</span>
+                            <button class="bg-brand-dark text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="bg-brand-light rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow group">
+                    <div class="h-64 bg-gray-200 relative overflow-hidden">
+                        <img src="./_mg_7301-2-1.jpg" alt="Soursop Leaves" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-8">
+                        <div class="text-xs font-bold text-brand-green uppercase tracking-wider mb-2">Herbal Tea</div>
+                        <h3 class="text-2xl font-serif font-bold mb-3">🍃 Soursop Leaves</h3>
+                        <p class="text-gray-600 text-sm mb-4">Widely known for powerful antioxidant properties. Supports immune health and promotes relaxation.</p>
+                        <div class="flex justify-between items-center mt-6">
+                            <span class="text-xl font-bold text-brand-green">$22.00</span>
+                            <button class="bg-brand-dark text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: THE SACRED MOUNTAIN -->
+    <section class="mountain-section py-32 text-center relative">
+        <div class="absolute inset-0 bg-brand-green/80"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <h2 class="text-4xl md:text-5xl font-serif font-bold text-white mb-8">The Sacred Mountain</h2>
+            <p class="text-xl text-brand-light leading-relaxed font-light mb-6">
+                Mount Ngiro is one of the most ecologically unique mountains in northern Kenya. Its forests host rare medicinal plants, bees, and wildlife that thrive in this isolated ecosystem.
+            </p>
+            <p class="text-xl text-brand-light leading-relaxed font-light">
+                The Samburu people have protected this mountain for generations, preserving traditional knowledge of herbal medicine and sustainable harvesting.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION 7: COMMUNITY IMPACT -->
+    <section id="impact" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center gap-16">
+                <div class="w-full md:w-1/2">
+                    <img src="./_mg_7303-2.jpg" alt="Samburu Community" class="rounded-2xl shadow-2xl">
+                </div>
+                <div class="w-full md:w-1/2">
+                    <span class="text-brand-gold font-semibold tracking-wider uppercase text-sm mb-4 block">Beyond Business</span>
+                    <h2 class="text-3xl md:text-5xl font-serif font-bold text-brand-dark mb-8">Empowering Samburu Communities</h2>
+                    <p class="text-lg text-gray-600 mb-8 font-light">
+                        Every purchase directly impacts the lives of the indigenous people of Mount Ngiro. We believe in ethical sourcing that respects both the land and its stewards.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-brand-green mt-1 mr-3"></i>
+                            <span class="text-gray-700">Supporting local beekeepers with fair trade pricing</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-brand-green mt-1 mr-3"></i>
+                            <span class="text-gray-700">Empowering traditional herbal collectors</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-brand-green mt-1 mr-3"></i>
+                            <span class="text-gray-700">Preserving Samburu traditional knowledge</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-brand-green mt-1 mr-3"></i>
+                            <span class="text-gray-700">Practicing 100% sustainable wild harvesting</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: CUSTOMER TESTIMONIALS -->
+    <section class="py-24 bg-brand-light border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-center text-brand-dark mb-16">What Our Customers Say</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="bg-white p-8 rounded-2xl shadow-sm relative">
+                    <div class="text-brand-gold text-4xl absolute top-6 right-8 opacity-20">
+                        <i class="fa-solid fa-quote-right"></i>
+                    </div>
+                    <div class="flex text-brand-gold mb-4 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 italic text-lg mb-6">"The honey tastes incredible and completely natural. You can really taste the rich wild flora. Best honey I've ever had."</p>
+                    <div class="font-semibold text-brand-dark">- Sarah M.</div>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm relative">
+                    <div class="text-brand-gold text-4xl absolute top-6 right-8 opacity-20">
+                        <i class="fa-solid fa-quote-right"></i>
+                    </div>
+                    <div class="flex text-brand-gold mb-4 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 italic text-lg mb-6">"Seketet tea helped my stomach problems tremendously. It's a very comforting tea that I now drink every evening."</p>
+                    <div class="font-semibold text-brand-dark">- David K.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-dark text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div class="col-span-1 md:col-span-2">
+                    <span class="font-serif text-2xl font-bold text-brand-gold mb-6 block">Ngiro Treasures</span>
+                    <p class="text-gray-400 max-w-md mb-6">
+                        Sacred Wellness from the Slopes of Mount Ngiro. Pure wild honey and medicinal herbs honoring Samburu heritage.
+                    </p>
+                    <div class="flex space-x-4 text-gray-400">
+                        <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-instagram text-xl"></i></a>
+                        <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-facebook text-xl"></i></a>
+                        <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-twitter text-xl"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Home</a></li>
+                        <li><a href="#about" class="hover:text-brand-gold transition-colors">Our Story</a></li>
+                        <li><a href="#products" class="hover:text-brand-gold transition-colors">Products</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Contact Us</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fa-solid fa-location-dot mr-2 w-4"></i> Samburu County, Kenya</li>
+                        <li><i class="fa-solid fa-envelope mr-2 w-4"></i> hello@ngirotreasures.com</li>
+                        <li><i class="fa-solid fa-phone mr-2 w-4"></i> +254 700 000000</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
+                <p>&copy; 2026 Ngiro Treasures. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
