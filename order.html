@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -71,7 +71,7 @@
                     <select id="currencySelector" onchange="changeCurrency(this.value)" class="bg-white border border-gray-300 text-gray-700 text-sm rounded-md focus:ring-brand-green focus:border-brand-green block p-2 outline-none cursor-pointer shadow-sm">
                         <option value="KES" selected>KES (Ksh)</option>
                         <option value="USD">USD ($)</option>
-                        <option value="EUR">EUR (Ã¢â€šÂ¬)</option>
+                        <option value="EUR">EUR (&#x20AC;)</option>
                     </select>
 
                     <a href="order.html" class="relative text-gray-700 hover:text-brand-green transition-colors flex items-center" aria-label="Cart">
@@ -94,7 +94,7 @@
                     <select id="mobileCurrencySelector" onchange="changeCurrency(this.value)" class="bg-white border border-gray-300 text-gray-700 text-sm rounded-md focus:ring-brand-green focus:border-brand-green block p-2 outline-none w-full shadow-sm">
                         <option value="KES" selected>KES (Ksh)</option>
                         <option value="USD">USD ($)</option>
-                        <option value="EUR">EUR (Ã¢â€šÂ¬)</option>
+                        <option value="EUR">EUR (&#x20AC;)</option>
                     </select>
                 </div>
             </div>
@@ -160,27 +160,27 @@
                         <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
                             <label class="flex flex-col items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-brand-green transition-colors has-[:checked]:border-brand-green has-[:checked]:bg-green-50">
                                 <input type="radio" name="payment" value="M-PESA" class="sr-only" required onchange="document.getElementById('mpesa-info').classList.remove('hidden')">
-                                <span class="text-2xl mb-1">Ã°Å¸â€œÂ±</span>
+                                <span class="text-2xl mb-1">&#x1F4F1;</span>
                                 <span class="text-xs font-bold text-gray-700">M-PESA</span>
                             </label>
                             <label class="flex flex-col items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-brand-green transition-colors has-[:checked]:border-brand-green has-[:checked]:bg-green-50">
                                 <input type="radio" name="payment" value="PayPal" class="sr-only" onchange="document.getElementById('mpesa-info').classList.add('hidden')">
-                                <span class="text-2xl mb-1">Ã°Å¸â€™Â³</span>
+                                <span class="text-2xl mb-1">&#x1F4B3;</span>
                                 <span class="text-xs font-bold text-gray-700">PayPal</span>
                             </label>
                             <label class="flex flex-col items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-brand-green transition-colors has-[:checked]:border-brand-green has-[:checked]:bg-green-50">
                                 <input type="radio" name="payment" value="Bank Transfer" class="sr-only" onchange="document.getElementById('mpesa-info').classList.add('hidden')">
-                                <span class="text-2xl mb-1">Ã°Å¸ÂÂ¦</span>
+                                <span class="text-2xl mb-1">&#x1F3E6;</span>
                                 <span class="text-xs font-bold text-gray-700">Bank Transfer</span>
                             </label>
                             <label class="flex flex-col items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-brand-green transition-colors has-[:checked]:border-brand-green has-[:checked]:bg-green-50">
                                 <input type="radio" name="payment" value="SWIFT" class="sr-only" onchange="document.getElementById('mpesa-info').classList.add('hidden')">
-                                <span class="text-2xl mb-1">Ã°Å¸Å’Â</span>
+                                <span class="text-2xl mb-1">&#x1F30D;</span>
                                 <span class="text-xs font-bold text-gray-700">SWIFT</span>
                             </label>
                             <label class="flex flex-col items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-brand-green transition-colors has-[:checked]:border-brand-green has-[:checked]:bg-green-50">
                                 <input type="radio" name="payment" value="Crypto" class="sr-only" onchange="document.getElementById('mpesa-info').classList.add('hidden')">
-                                <span class="text-2xl mb-1">Ã¢â€šÂ¿</span>
+                                <span class="text-2xl mb-1">&#x20BF;</span>
                                 <span class="text-xs font-bold text-gray-700">Crypto</span>
                             </label>
                         </div>
@@ -372,7 +372,7 @@
                     if (qty > 0) {
                         const price = p.prices[currency] || p.prices['KES'] || 0;
                         const lineTotal = price * qty;
-                        products.push(`${qty}x ${p.name} ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ ${symbol}${lineTotal.toFixed(2)}`);
+                        products.push(`${qty}x ${p.name} - ${symbol}${lineTotal.toFixed(2)}`);
                         total += lineTotal;
                     }
                 }
