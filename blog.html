@@ -58,8 +58,10 @@
                 </a>
                 <div class="hidden md:flex space-x-8">
                     <a href="index.html" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Home</a>
+                    <a href="index.html#about" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Our Story</a>
                     <a href="index.html#products" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Products</a>
                     <a href="blog.html" class="text-brand-green border-b-2 border-brand-green px-3 py-2 text-sm font-medium transition-colors">Journal</a>
+                    <a href="index.html#impact" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Impact</a>
                     <a href="order.html" class="bg-brand-green text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-green-800 transition-colors">Order Now</a>
                 </div>
             </div>
@@ -124,6 +126,10 @@
             </article>
 
         </div>
+
+        <!-- Dynamic articles from admin panel -->
+        <div id="dynamicArticles" class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10"></div>
+
     </main>
 
     <!-- Footer -->
@@ -132,5 +138,31 @@
             <p class="text-gray-400 text-sm">&copy; 2026 Ngiro Treasures. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // Load articles published from admin panel
+        document.addEventListener('DOMContentLoaded', () => {
+            const articles = JSON.parse(localStorage.getItem('ngiro_articles') || '[]');
+            const container = document.getElementById('dynamicArticles');
+            if(articles.length === 0) return;
+
+            container.innerHTML = articles.map(article => `
+                <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow group flex flex-col">
+                    <div class="h-64 bg-gray-200 relative overflow-hidden">
+                        <img src="${article.image}" alt="${article.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <div class="text-xs font-bold text-brand-gold uppercase tracking-wider mb-2">${article.category}</div>
+                        <h3 class="text-2xl font-serif font-bold mb-3 line-clamp-2">${article.title}</h3>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-3">${article.meta || ''}</p>
+                        <div class="mt-auto pt-4 flex justify-between items-center">
+                            <span class="text-gray-400 text-xs">${article.date}</span>
+                            <span class="text-brand-green font-medium text-sm">Read Article &rarr;</span>
+                        </div>
+                    </div>
+                </article>
+            `).join('');
+        });
+    </script>
 </body>
 </html>
