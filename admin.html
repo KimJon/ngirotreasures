@@ -6,7 +6,7 @@
     <title>Admin Panel | Ngiro Treasures</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <script src="products.js?v=4"></script>
+    <script src="products.js?v=5"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -433,7 +433,7 @@ function getCurrencySymbol(currency) {
     return '$';
 }`;
             navigator.clipboard.writeText(jsCode).then(() => {
-                alert('âœ… products.js code copied to clipboard!\n\nTo make your products live for everyone:\n1. Open "products.js?v=4" in your code editor.\n2. Paste the copied code (replacing the old code).\n3. Commit and Push to GitHub.');
+                alert('âœ… products.js code copied to clipboard!\n\nTo make your products live for everyone:\n1. Open "products.js?v=5" in your code editor.\n2. Paste the copied code (replacing the old code).\n3. Commit and Push to GitHub.');
             }).catch(err => {
                 alert('Failed to copy. Check console for details.');
                 console.error(err);
@@ -785,6 +785,7 @@ function getCurrencySymbol(currency) {
     </script>
 </body>
 </html>
+
 
 
 
