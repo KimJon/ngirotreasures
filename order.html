@@ -60,7 +60,12 @@
                         <option value="KES">KES (Ksh)</option>
                     </select>
 
-                    <a href="order.html" class="bg-brand-green text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-green-800 transition-colors">Order Now</a>
+                    <a href="order.html" class="relative text-gray-700 hover:text-brand-green transition-colors flex items-center" aria-label="Cart">
+                        <i class="fa-solid fa-cart-shopping text-xl"></i>
+                        <span id="cart-badge" class="hidden absolute -top-2 -right-2 bg-brand-gold text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">0</span>
+                    </a>
+
+                    <a href="order.html" class="bg-brand-green text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-green-800 transition-colors">Checkout</a>
                 </div>
             </div>
         </div>
@@ -196,7 +201,7 @@
             container.innerHTML = allProducts.map(p => `
                 <label class="flex items-center justify-between p-3 border rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
                     <span class="flex items-center">
-                        <input type="checkbox" id="product_${p.id}" value="${p.name}" onchange="updateTotal()"
+                        <input type="checkbox" id="product_${p.id}" value="${p.name}" onchange="toggleCartItem('${p.id}', this.checked)"
                             class="h-5 w-5 text-brand-green border-gray-300 rounded focus:ring-brand-green">
                         <span class="ml-3 text-gray-700 font-medium">${p.name}</span>
                     </span>
@@ -204,14 +209,47 @@
                 </label>
             `).join('');
 
-            // Auto-check from URL param
+            // Auto-check from URL param or Cart
             const urlParams = new URLSearchParams(window.location.search);
             const preselect = urlParams.get('product');
-            if (preselect) {
-                const el = document.getElementById('product_' + preselect);
-                if (el) el.checked = true;
+            const cart = JSON.parse(localStorage.getItem('ngiro_cart') || '[]');
+            
+            if (preselect && !cart.includes(preselect)) {
+                cart.push(preselect);
             }
+            
+            cart.forEach(id => {
+                const el = document.getElementById('product_' + id);
+                if (el) el.checked = true;
+            });
+            
             updateTotal();
+            updateCartBadge();
+        }
+
+        function toggleCartItem(id, isChecked) {
+            let cart = JSON.parse(localStorage.getItem('ngiro_cart') || '[]');
+            if (isChecked && !cart.includes(id)) {
+                cart.push(id);
+            } else if (!isChecked && cart.includes(id)) {
+                cart = cart.filter(item => item !== id);
+            }
+            localStorage.setItem('ngiro_cart', JSON.stringify(cart));
+            updateTotal();
+            updateCartBadge();
+        }
+
+        function updateCartBadge() {
+            let cart = JSON.parse(localStorage.getItem('ngiro_cart') || '[]');
+            const badge = document.getElementById('cart-badge');
+            if (badge) {
+                badge.textContent = cart.length;
+                if (cart.length > 0) {
+                    badge.classList.remove('hidden');
+                } else {
+                    badge.classList.add('hidden');
+                }
+            }
         }
 
         function updateTotal() {
@@ -274,6 +312,10 @@
 
             window.open(`https://wa.me/254792465156?text=${encodeURIComponent(message)}`, '_blank');
             incrementStat('ngiro_order_clicks');
+            
+            // Clear cart
+            localStorage.setItem('ngiro_cart', '[]');
+            setTimeout(() => { window.location.href = 'index.html'; }, 1000);
         }
 
         document.addEventListener('DOMContentLoaded', renderOrderProducts);

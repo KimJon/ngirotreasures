@@ -74,7 +74,12 @@
                         <option value="KES">KES (Ksh)</option>
                     </select>
 
-                    <a href="order.html" class="bg-brand-green text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-green-800 transition-colors">Order Now</a>
+                    <a href="order.html" class="relative text-gray-700 hover:text-brand-green transition-colors flex items-center" aria-label="Cart">
+                        <i class="fa-solid fa-cart-shopping text-xl"></i>
+                        <span id="cart-badge" class="hidden absolute -top-2 -right-2 bg-brand-gold text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">0</span>
+                    </a>
+
+                    <a href="order.html" class="bg-brand-green text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-green-800 transition-colors">Checkout</a>
                 </div>
             </div>
         </div>
@@ -329,21 +334,57 @@
             const allProducts = JSON.parse(localStorage.getItem('ngiro_custom_products') || 'null') || ngiroProducts;
 
             container.innerHTML = allProducts.map(product => `
-                <div class="bg-brand-light rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow group">
+                <div class="bg-brand-light rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow group flex flex-col">
                     <div class="h-64 bg-gray-200 relative overflow-hidden">
                         <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     </div>
-                    <div class="p-8 flex flex-col h-full">
+                    <div class="p-8 flex flex-col flex-grow">
                         <div class="text-xs font-bold text-brand-gold uppercase tracking-wider mb-2">Product</div>
                         <h3 class="text-2xl font-serif font-bold mb-3">${product.name}</h3>
                         <p class="text-gray-600 text-sm mb-4 flex-grow">${product.description}</p>
                         <div class="flex justify-between items-center mt-6">
                             <span class="text-xl font-bold text-brand-green">${symbol}${product.prices[currency].toFixed(2)}</span>
-                            <a href="order.html?product=${product.id}" rel="nofollow" class="bg-brand-dark text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors inline-block">Order Now</a>
+                            <button onclick="addToCart('${product.id}')" class="bg-brand-dark text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors flex items-center">
+                                <i class="fa-solid fa-cart-plus mr-2"></i> Add to Cart
+                            </button>
                         </div>
                     </div>
                 </div>
             `).join('');
+            updateCartBadge();
+        }
+
+        // --- Cart Logic ---
+        function addToCart(productId) {
+            let cart = JSON.parse(localStorage.getItem('ngiro_cart') || '[]');
+            if (!cart.includes(productId)) {
+                cart.push(productId);
+                localStorage.setItem('ngiro_cart', JSON.stringify(cart));
+            }
+            updateCartBadge();
+            
+            // Toast notification
+            const toast = document.createElement('div');
+            toast.className = 'fixed top-24 right-4 bg-brand-green text-white px-6 py-3 rounded-lg shadow-xl z-50 flex items-center transform transition-all duration-300';
+            toast.innerHTML = '<i class="fa-solid fa-check-circle mr-2"></i> Added to Cart!';
+            document.body.appendChild(toast);
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 300);
+            }, 2000);
+        }
+
+        function updateCartBadge() {
+            let cart = JSON.parse(localStorage.getItem('ngiro_cart') || '[]');
+            const badge = document.getElementById('cart-badge');
+            if (badge) {
+                badge.textContent = cart.length;
+                if (cart.length > 0) {
+                    badge.classList.remove('hidden');
+                } else {
+                    badge.classList.add('hidden');
+                }
+            }
         }
 
         // Initialize on load
