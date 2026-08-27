@@ -36,7 +36,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap');
     </style>
-
+    <script src="products.js"></script>
 </head>
 <body class="bg-brand-light font-sans text-brand-dark antialiased min-h-screen flex flex-col">
 
@@ -47,12 +47,19 @@
                 <a href="index.html" class="flex-shrink-0 flex items-center">
                     <img src="./logo.jpg" alt="Ngiro Treasures Logo" class="h-14 w-auto rounded-md shadow-sm">
                 </a>
-                <div class="hidden md:flex space-x-8">
+                <div class="hidden md:flex space-x-6 items-center">
                     <a href="index.html" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Home</a>
                     <a href="index.html#about" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Our Story</a>
                     <a href="index.html#products" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Products</a>
                     <a href="blog.html" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Journal</a>
                     <a href="index.html#impact" class="text-gray-700 hover:text-brand-green px-3 py-2 text-sm font-medium transition-colors">Impact</a>
+                    
+                    <select id="currencySelector" onchange="changeCurrency(this.value)" class="bg-white border border-gray-300 text-gray-700 text-sm rounded-md focus:ring-brand-green focus:border-brand-green block p-2 outline-none cursor-pointer shadow-sm">
+                        <option value="USD">USD ($)</option>
+                        <option value="EUR">EUR (€)</option>
+                        <option value="KES">KES (Ksh)</option>
+                    </select>
+
                     <a href="order.html" class="bg-brand-green text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-green-800 transition-colors">Order Now</a>
                 </div>
             </div>
@@ -73,20 +80,9 @@
                     
                     <!-- Product Selection -->
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Select Product(s) *</label>
-                        <div class="space-y-3">
-                            <label class="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
-                                <input type="checkbox" id="product_honey" value="Raw Wild Honey" class="h-5 w-5 text-brand-green border-gray-300 rounded focus:ring-brand-green">
-                                <span class="ml-3 text-gray-700 font-medium">🍯 Raw Wild Honey - $24.00</span>
-                            </label>
-                            <label class="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
-                                <input type="checkbox" id="product_seketet" value="Seketet Herbal Leaves" class="h-5 w-5 text-brand-green border-gray-300 rounded focus:ring-brand-green">
-                                <span class="ml-3 text-gray-700 font-medium">🌿 Seketet Herbal Leaves - $18.00</span>
-                            </label>
-                            <label class="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
-                                <input type="checkbox" id="product_soursop" value="Soursop Leaves" class="h-5 w-5 text-brand-green border-gray-300 rounded focus:ring-brand-green">
-                                <span class="ml-3 text-gray-700 font-medium">🍃 Soursop Leaves - $22.00</span>
-                            </label>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Select Products *</label>
+                        <div id="dynamic-products-list" class="space-y-3">
+                            <!-- Checkboxes injected by JS -->
                         </div>
                     </div>
 
@@ -122,6 +118,44 @@
                         <textarea id="notes" rows="2" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-brand-green focus:border-brand-green sm:text-sm p-3 border"></textarea>
                     </div>
 
+                    <!-- Payment Method -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Preferred Payment Method *</label>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                            <label class="flex flex-col items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-brand-green transition-colors has-[:checked]:border-brand-green has-[:checked]:bg-green-50">
+                                <input type="radio" name="payment" value="M-PESA" class="sr-only" required>
+                                <span class="text-2xl mb-1">📱</span>
+                                <span class="text-xs font-bold text-gray-700">M-PESA</span>
+                            </label>
+                            <label class="flex flex-col items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-brand-green transition-colors has-[:checked]:border-brand-green has-[:checked]:bg-green-50">
+                                <input type="radio" name="payment" value="PayPal" class="sr-only">
+                                <span class="text-2xl mb-1">💳</span>
+                                <span class="text-xs font-bold text-gray-700">PayPal</span>
+                            </label>
+                            <label class="flex flex-col items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-brand-green transition-colors has-[:checked]:border-brand-green has-[:checked]:bg-green-50">
+                                <input type="radio" name="payment" value="Bank Transfer" class="sr-only">
+                                <span class="text-2xl mb-1">🏦</span>
+                                <span class="text-xs font-bold text-gray-700">Bank Transfer</span>
+                            </label>
+                            <label class="flex flex-col items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-brand-green transition-colors has-[:checked]:border-brand-green has-[:checked]:bg-green-50">
+                                <input type="radio" name="payment" value="SWIFT" class="sr-only">
+                                <span class="text-2xl mb-1">🌐</span>
+                                <span class="text-xs font-bold text-gray-700">SWIFT</span>
+                            </label>
+                            <label class="flex flex-col items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-brand-green transition-colors has-[:checked]:border-brand-green has-[:checked]:bg-green-50">
+                                <input type="radio" name="payment" value="Crypto" class="sr-only">
+                                <span class="text-2xl mb-1">₿</span>
+                                <span class="text-xs font-bold text-gray-700">Crypto</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Order Total Preview -->
+                    <div id="order-total-box" class="hidden bg-brand-light border border-gray-200 rounded-xl p-4">
+                        <p class="text-sm font-medium text-gray-600 mb-1">Estimated Total:</p>
+                        <p id="order-total" class="text-2xl font-bold text-brand-green"></p>
+                    </div>
+
                     <!-- Submit Button -->
                     <div class="pt-4">
                         <button type="submit" class="w-full flex justify-center py-4 px-4 border border-transparent rounded-md shadow-sm text-lg font-medium text-white bg-brand-green hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-green transition-colors">
@@ -142,66 +176,118 @@
     </footer>
 
     <script>
-        // Check URL parameters to auto-select a product if clicked from a specific Add to Cart button
-        document.addEventListener("DOMContentLoaded", () => {
+        // Currency helpers
+        function changeCurrency(currency) {
+            localStorage.setItem('ngiro_currency', currency);
+            renderOrderProducts();
+        }
+
+        function renderOrderProducts() {
+            const container = document.getElementById('dynamic-products-list');
+            if (!container) return;
+
+            const allProducts = JSON.parse(localStorage.getItem('ngiro_custom_products') || 'null') || ngiroProducts;
+            const currency = localStorage.getItem('ngiro_currency') || 'USD';
+            const symbol = getCurrencySymbol(currency);
+
+            const sel = document.getElementById('currencySelector');
+            if (sel) sel.value = currency;
+
+            container.innerHTML = allProducts.map(p => `
+                <label class="flex items-center justify-between p-3 border rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
+                    <span class="flex items-center">
+                        <input type="checkbox" id="product_${p.id}" value="${p.name}" onchange="updateTotal()"
+                            class="h-5 w-5 text-brand-green border-gray-300 rounded focus:ring-brand-green">
+                        <span class="ml-3 text-gray-700 font-medium">${p.name}</span>
+                    </span>
+                    <span class="text-brand-green font-bold text-sm">${symbol}${(p.prices[currency] || p.prices['USD'] || 0).toFixed(2)}</span>
+                </label>
+            `).join('');
+
+            // Auto-check from URL param
             const urlParams = new URLSearchParams(window.location.search);
-            const product = urlParams.get('product');
-            if(product === 'honey') document.getElementById('product_honey').checked = true;
-            if(product === 'seketet') document.getElementById('product_seketet').checked = true;
-            if(product === 'soursop') document.getElementById('product_soursop').checked = true;
-        });
+            const preselect = urlParams.get('product');
+            if (preselect) {
+                const el = document.getElementById('product_' + preselect);
+                if (el) el.checked = true;
+            }
+            updateTotal();
+        }
+
+        function updateTotal() {
+            const allProducts = JSON.parse(localStorage.getItem('ngiro_custom_products') || 'null') || ngiroProducts;
+            const currency = localStorage.getItem('ngiro_currency') || 'USD';
+            const symbol = getCurrencySymbol(currency);
+
+            let total = 0;
+            allProducts.forEach(p => {
+                const el = document.getElementById('product_' + p.id);
+                if (el && el.checked) total += (p.prices[currency] || p.prices['USD'] || 0);
+            });
+
+            const box = document.getElementById('order-total-box');
+            const totalEl = document.getElementById('order-total');
+            if (total > 0) {
+                box.classList.remove('hidden');
+                totalEl.textContent = `${symbol}${total.toFixed(2)}`;
+            } else {
+                box.classList.add('hidden');
+            }
+        }
 
         function submitOrder(e) {
             e.preventDefault();
-            
-            // Gather products
-            let products = [];
-            if(document.getElementById('product_honey').checked) products.push("Raw Wild Honey");
-            if(document.getElementById('product_seketet').checked) products.push("Seketet Herbal Leaves");
-            if(document.getElementById('product_soursop').checked) products.push("Soursop Leaves");
-            
-            if(products.length === 0) {
-                alert("Please select at least one product.");
-                return;
-            }
+            const allProducts = JSON.parse(localStorage.getItem('ngiro_custom_products') || 'null') || ngiroProducts;
+            const currency = localStorage.getItem('ngiro_currency') || 'USD';
+            const symbol = getCurrencySymbol(currency);
 
-            // Gather details
+            let products = [];
+            let total = 0;
+            allProducts.forEach(p => {
+                const el = document.getElementById('product_' + p.id);
+                if (el && el.checked) {
+                    const price = p.prices[currency] || p.prices['USD'] || 0;
+                    products.push(`${p.name} – ${symbol}${price.toFixed(2)}`);
+                    total += price;
+                }
+            });
+
+            if (products.length === 0) { alert('Please select at least one product.'); return; }
+
             const name = document.getElementById('fullName').value;
             const phone = document.getElementById('phone').value;
             const email = document.getElementById('email').value;
             const address = document.getElementById('address').value;
             const notes = document.getElementById('notes').value;
+            const paymentEl = document.querySelector('input[name="payment"]:checked');
+            const payment = paymentEl ? paymentEl.value : 'Not specified';
 
-            // Format message
-            let message = `*New Order - Ngiro Treasures* 🌿\n\n`;
-            message += `*Customer Name:* ${name}\n`;
+            let message = `*New Order – Ngiro Treasures* 🌿\n\n`;
+            message += `*Customer:* ${name}\n`;
             message += `*Phone:* ${phone}\n`;
-            if(email) message += `*Email:* ${email}\n`;
+            if (email) message += `*Email:* ${email}\n`;
             message += `*Delivery Address:* ${address}\n\n`;
             message += `*Products Ordered:*\n- ${products.join('\n- ')}\n\n`;
-            if(notes) message += `*Notes:* ${notes}\n`;
+            message += `*Total:* ${symbol}${total.toFixed(2)} (${currency})\n`;
+            message += `*Payment Method:* ${payment}\n`;
+            if (notes) message += `\n*Notes:* ${notes}`;
 
-            // Encode for URL
-            const encodedMessage = encodeURIComponent(message);
-            
-            // Target WhatsApp Number (Boniface's number)
-            const targetNumber = "254792465156";
-            
-            // Open WhatsApp
-            window.open(`https://wa.me/${targetNumber}?text=${encodedMessage}`, '_blank');
+            window.open(`https://wa.me/254792465156?text=${encodeURIComponent(message)}`, '_blank');
+            incrementStat('ngiro_order_clicks');
         }
-    </script>
 
-    <!-- Floating WhatsApp & Analytics -->
-    <a href="https://wa.me/254792465156" target="_blank" onclick="incrementStat('ngiro_whatsapp_clicks')" class="fixed bottom-6 right-6 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:bg-green-600 transition-transform hover:scale-110 z-50">
-        <i class="fa-brands fa-whatsapp text-3xl"></i>
-    </a>
-    <script>
+        document.addEventListener('DOMContentLoaded', renderOrderProducts);
+
         function incrementStat(statName) {
             let count = parseInt(localStorage.getItem(statName) || '0');
             localStorage.setItem(statName, count + 1);
         }
         incrementStat('ngiro_site_visits');
     </script>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/254792465156" target="_blank" onclick="incrementStat('ngiro_whatsapp_clicks')" class="fixed bottom-6 right-6 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:bg-green-600 transition-transform hover:scale-110 z-50">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    </a>
 </body>
 </html>
