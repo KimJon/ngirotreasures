@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <script>if(location.protocol!=="https:")location.replace("https://"+location.host+location.pathname+location.search+location.hash);</script>
@@ -147,8 +147,18 @@
             const price = (currentProduct.prices[currency] || currentProduct.prices['KES'] || 0).toFixed(2);
             
             // Using string concatenation to avoid powershell backtick escaping issues during insertion
-            let html = '<div class="md:w-1/2 bg-gray-100 relative min-h-[400px]">';
-            html += '<img src="' + currentProduct.image + '" alt="' + currentProduct.name + '" class="w-full h-full object-cover object-center absolute inset-0 mix-blend-multiply">';
+            var productImages = (currentProduct.images && currentProduct.images.length > 1) ? currentProduct.images : [currentProduct.image];
+            var mainImgId = 'main-product-img-' + currentProduct.id;
+
+            let html = '<div class="md:w-1/2 bg-gray-100 relative min-h-[400px] flex flex-col">';
+            html += '<img id="' + mainImgId + '" src="' + productImages[0] + '" alt="' + currentProduct.name + '" class="w-full flex-grow object-cover object-center min-h-[350px] mix-blend-multiply">';
+            if (productImages.length > 1) {
+                html += '<div class="flex gap-2 p-2 bg-white border-t border-gray-200">';
+                productImages.forEach(function(imgSrc, idx) {
+                    html += '<img src="' + imgSrc + '" alt="' + currentProduct.name + ' view ' + (idx+1) + '" onclick="document.getElementById(\'' + mainImgId + '\').src=this.src" class="w-16 h-16 object-cover object-center rounded cursor-pointer border-2 border-transparent hover:border-brand-green transition-colors">';
+                });
+                html += '</div>';
+            }
             html += '</div>';
             html += '<div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center bg-white z-10">';
             html += '<span class="text-brand-gold font-bold uppercase tracking-wider text-sm mb-3 block">Ngiro Treasures</span>';

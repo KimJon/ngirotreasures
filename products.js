@@ -54,6 +54,18 @@ const ngiroProducts = [
             EUR: 2.20,
             KES: 300
         }
+    },
+    {
+        id: 'ngiro_ratish',
+        name: 'Ngiro Ratish (100g)',
+        description: 'A rare and powerful traditional herb from the highlands of Mt. Ngiro, Samburu. Ngiro Ratish is used by local communities for its natural wellness and vitality-boosting properties. Rich in natural compounds, it supports energy, immunity and overall body balance.',
+        image: './ngiro ratish.jpeg?v=1',
+        images: ['./ngiro ratish.jpeg?v=1', './ratish ngiro.jpeg?v=1'],
+        prices: {
+            USD: 3.50,
+            EUR: 3.20,
+            KES: 450
+        }
     }
 ];
 
