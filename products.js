@@ -4,7 +4,7 @@ const ngiroProducts = [
         id: 'honey_1litre',
         name: '1 Litre Raw Wild Honey',
         description: 'Pure, raw wild honey harvested from the pristine forests of Mt. Ngiro, Samburu. This 1-litre jar is perfect for families and daily use. Naturally sweet, unprocessed and packed with nutrients, enzymes and antioxidants.',
-        image: './present honey.jpg?v=1',
+        image: './ngiro honey display.jpeg?v=1',
         prices: {
             USD: 1.90,
             EUR: 1.75,
@@ -69,7 +69,7 @@ const ngiroProducts = [
     {
         id: 'ngiro_ratish',
         name: 'Ngiro Ratish (100g)',
-        description: 'A rare and powerful traditional herb from the highlands of Mt. Ngiro, Samburu. Ngiro Ratish is used by local communities for its natural wellness and vitality-boosting properties. Rich in natural compounds, it supports energy, immunity and overall body balance.',
+        description: 'Ngiro Ratish is a rare and treasured traditional herb indigenous to the highlands of Mt. Ngiro in Samburu County, Kenya. Harvested and used for generations by the Samburu community, this powerful herb is prized for its wide range of natural wellness benefits. It is traditionally prepared as a herbal tea or decoction and is known to support energy and vitality, boost immune function, aid digestion and gut health, promote hormonal balance, and cleanse the body of toxins. Each 100g pack is carefully hand-harvested, sun-dried and packaged to preserve its natural potency. 100% natural, unprocessed and free from additives.',
         image: './ngiro ratish.jpeg?v=1',
         images: ['./ngiro ratish.jpeg?v=1', './ratish ngiro.jpeg?v=1'],
         prices: {
