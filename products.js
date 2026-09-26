@@ -1,6 +1,17 @@
 
 const ngiroProducts = [
     {
+        id: 'honey_1litre',
+        name: '1 Litre Raw Wild Honey',
+        description: 'Pure, raw wild honey harvested from the pristine forests of Mt. Ngiro, Samburu. This 1-litre jar is perfect for families and daily use. Naturally sweet, unprocessed and packed with nutrients, enzymes and antioxidants.',
+        image: './present honey.jpg?v=1',
+        prices: {
+            USD: 1.90,
+            EUR: 1.75,
+            KES: 250
+        }
+    },
+    {
         id: 'honey_1kg',
         name: '1KG Raw Wild Honey',
         description: 'Pure, raw honey harvested from the rich flora of Mt. Ngiro. Naturally sweet, unprocessed and packed with nutrients, enzymes and antioxidants.',
