@@ -68,14 +68,14 @@ const ngiroProducts = [
     },
     {
         id: 'ngiro_ratish',
-        name: 'Ngiro Ratish (100g)',
-        description: 'Ngiro Ratish is a rare and treasured traditional herb indigenous to the highlands of Mt. Ngiro in Samburu County, Kenya. Harvested and used for generations by the Samburu community, this powerful herb is prized for its wide range of natural wellness benefits. It is traditionally prepared as a herbal tea or decoction and is known to support energy and vitality, boost immune function, aid digestion and gut health, promote hormonal balance, and cleanse the body of toxins. Each 100g pack is carefully hand-harvested, sun-dried and packaged to preserve its natural potency. 100% natural, unprocessed and free from additives.',
-        image: './ngiro ratish.jpeg?v=1',
-        images: ['./ngiro ratish.jpeg?v=1', './ratish ngiro.jpeg?v=1'],
+        name: 'Ngiro Ratish (1 Litre)',
+        description: 'Ngiro Ratish is a rare and treasured traditional natural remedy indigenous to the highlands of Mt. Ngiro in Samburu County, Kenya. Harvested and prepared for generations by the Samburu community, this powerful herbal remedy is prized for its wide range of natural wellness benefits. It is known to support energy and vitality, boost immune function, aid digestion and gut health, promote hormonal balance, and cleanse the body of toxins. Sourced in 1-litre bottles. 100% natural, unprocessed and free from additives.',
+        image: './ngiro ratish.jpeg?v=2',
+        images: ['./ngiro ratish.jpeg?v=2', './ratish ngiro.jpeg?v=2'],
         prices: {
-            USD: 3.50,
-            EUR: 3.20,
-            KES: 450
+            USD: 1.50,
+            EUR: 1.40,
+            KES: 200
         }
     }
 ];
